@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import { ExternalLink, GraduationCap, Building2, PenTool, Coffee, Notebook, Shirt } from "lucide-react";
 
 // Asset imports
@@ -84,29 +85,30 @@ export default function Products() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {merchItems.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors"
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <item.icon className="w-4 h-4 text-primary" />
-                    <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
+              <Link key={index} href="/quote">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  <div className="aspect-[4/5] overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-[10px] text-gray-400 leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <item.icon className="w-4 h-4 text-primary" />
+                      <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-[10px] text-gray-400 leading-relaxed whitespace-pre-line">{item.description}</p>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </section>
