@@ -3,6 +3,17 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt } from "lucide-react";
 import { useEffect, useState } from "react";
 
+// Asset imports
+import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
+import schoolImage2 from "@assets/stock_images/premium_school_spiri_c9b3707a.jpg";
+import schoolImage3 from "@assets/stock_images/premium_school_spiri_981b951f.jpg";
+import schoolImage4 from "@assets/stock_images/premium_school_spiri_dcc30503.jpg";
+
+import bizImage1 from "@assets/stock_images/luxury_corporate_gif_16731289.jpg";
+import bizImage2 from "@assets/stock_images/luxury_corporate_gif_ae4c74ef.jpg";
+import bizImage3 from "@assets/stock_images/luxury_corporate_gif_bf687a49.jpg";
+import bizImage4 from "@assets/stock_images/luxury_corporate_gif_f9ded9a7.jpg";
+
 const ShootingStars = () => {
   const [stars, setStars] = useState<{ id: number; top: string; left: string; delay: string; duration: string }[]>([]);
 
