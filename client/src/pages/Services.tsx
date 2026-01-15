@@ -3,8 +3,6 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { 
   ShoppingBag, 
   Shirt, 
-  Briefcase, 
-  CalendarDays, 
   Palette, 
   Printer 
 } from "lucide-react";
@@ -22,16 +20,6 @@ export default function Services() {
       description: "Premium custom apparel solutions using state-of-the-art printing technology for vibrant, long-lasting results.",
       icon: Shirt,
       items: ["Screen Print", "Embroidery", "Vinyl Transfer", "Digital Printing"]
-    },
-    {
-      title: "Business Consulting",
-      description: "Strategic guidance to take your business to the next level. We leverage over 20 years of experience in promotional marketing.",
-      icon: Briefcase,
-    },
-    {
-      title: "Event Planning",
-      description: "Comprehensive event management services ensuring your corporate events, launches, and celebrations are executed flawlessly.",
-      icon: CalendarDays,
     },
     {
       title: "Graphics Design",
