@@ -111,7 +111,12 @@ export default function Products() {
                       <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
                     </div>
                     <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                    <p className="text-[10px] text-gray-400 leading-relaxed whitespace-pre-line">{item.description}</p>
+                    <p className="text-[10px] text-gray-400 leading-relaxed whitespace-pre-line mb-4">{item.description}</p>
+                    <div className="mt-auto">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary hover:text-black border border-primary/20 rounded-lg text-primary text-xs font-bold uppercase tracking-wider transition-all duration-300">
+                        Explore <ExternalLink size={14} />
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </a>
