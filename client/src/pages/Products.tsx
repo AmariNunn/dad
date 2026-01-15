@@ -85,12 +85,18 @@ export default function Products() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {merchItems.map((item, index) => (
-              <Link key={index} href="/quote">
+              <a 
+                key={index} 
+                href="https://thetrimovement.espwebsite.com/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="block"
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                  className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors cursor-pointer h-full"
                 >
                   <div className="aspect-[4/5] overflow-hidden">
                     <img 
@@ -108,7 +114,7 @@ export default function Products() {
                     <p className="text-[10px] text-gray-400 leading-relaxed whitespace-pre-line">{item.description}</p>
                   </div>
                 </motion.div>
-              </Link>
+              </a>
             ))}
           </div>
         </section>
