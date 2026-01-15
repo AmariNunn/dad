@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 // Components
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
 import { Navigation } from "@/components/Navigation";
+import { ShootingStars } from "@/components/ShootingStars";
 
 // Assets
 import logoWebp from "@/assets/images/logo.webp";
@@ -80,6 +81,7 @@ function App() {
             magnifierRadius={200}
             className="fixed inset-0"
           />
+          <ShootingStars />
           
           {/* Content Overlay */}
           <div className="relative z-10 flex flex-col min-h-screen">
