@@ -9,6 +9,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
 import { Navigation } from "@/components/Navigation";
 
+// Assets
+import logoWebp from "@/assets/images/logo.webp";
+
 // Pages
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
@@ -86,9 +89,10 @@ function App() {
             </main>
             
             {/* Footer */}
-            <footer className="border-t border-white/10 bg-black/60 backdrop-blur-md py-8 mt-auto">
-              <div className="container mx-auto px-4 text-center text-sm text-gray-500">
-                <p>&copy; {new Date().getFullYear()} TRI Creative Group. All rights reserved.</p>
+            <footer className="border-t border-white/10 bg-black/60 backdrop-blur-md py-12 mt-auto">
+              <div className="container mx-auto px-4 text-center">
+                <img src={logoWebp} alt="TRI Creative Group Logo" className="h-12 mx-auto mb-6 opacity-80 hover:opacity-100 transition-opacity" />
+                <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} TRI Creative Group. All rights reserved.</p>
               </div>
             </footer>
           </div>
