@@ -3,11 +3,11 @@ import { ExternalLink, GraduationCap, Building2, PenTool, Coffee, Notebook, Shir
 
 // Asset imports
 import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
-import schoolImage3 from "@assets/stock_images/premium_school_spiri_981b951f.jpg";
-import bizImage1 from "@assets/stock_images/luxury_corporate_gif_16731289.jpg";
-import bizImage2 from "@assets/stock_images/luxury_corporate_gif_ae4c74ef.jpg";
-import bizImage3 from "@assets/stock_images/luxury_corporate_gif_16731289.jpg"; // Using available assets
-import bizImage4 from "@assets/stock_images/luxury_corporate_gif_ae4c74ef.jpg"; // Using available assets
+import schoolImage3 from "@assets/stock_images/custom_branded_appar_b6531585.jpg";
+import bizImage1 from "@assets/stock_images/high-end_office_desk_eaedea1b.jpg";
+import bizImage2 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
+import bizImage3 from "@assets/stock_images/premium_corporate_gi_dfe673e0.jpg";
+import bizImage4 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
 
 export default function Products() {
   const merchItems = [
@@ -140,20 +140,6 @@ export default function Products() {
             </div>
           </div>
         </section>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex-grow w-full glass-panel rounded-2xl overflow-hidden shadow-2xl border-primary/20 mt-10"
-        >
-          <iframe 
-            src="https://thetrimovement.espwebsite.com/" 
-            title="TRI Creative Group Products"
-            className="w-full h-[800px] border-none bg-white"
-            loading="lazy"
-          />
-        </motion.div>
       </div>
     </div>
   );
