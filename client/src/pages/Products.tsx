@@ -2,28 +2,28 @@ import { motion } from "framer-motion";
 import { ExternalLink, GraduationCap, Building2, PenTool, Coffee, Notebook, Shirt } from "lucide-react";
 
 // Asset imports
-import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
-import schoolImage3 from "@assets/stock_images/custom_branded_appar_b6531585.jpg";
-import bizImage1 from "@assets/stock_images/high-end_office_desk_eaedea1b.jpg";
-import bizImage2 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
+import schoolImage1 from "@/assets/images/hat.gif";
+import schoolImage3 from "@/assets/images/backpack.jpg";
+import bizImage1 from "@/assets/images/hand-sanitizer.gif";
+import bizImage2 from "@/assets/images/phone-stand.jpg";
 import bizImage3 from "@assets/stock_images/premium_corporate_gi_dfe673e0.jpg";
 import bizImage4 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
 
 export default function Products() {
   const merchItems = [
     {
-      title: "School Spirit Wear",
-      category: "Education",
+      title: "Apparel Print",
+      category: "Services",
       image: schoolImage1,
-      icon: GraduationCap,
-      description: "Premium hoodies and varsity jackets for ultimate team pride."
+      icon: Shirt,
+      description: "• Screen Print\n• Embroidery\n• Vinyl\n• Digital Printing"
     },
     {
-      title: "Executive Stationery",
-      category: "Corporate",
-      image: bizImage1,
+      title: "Promotional Products & Merchandising",
+      category: "Branding",
+      image: schoolImage3,
       icon: Notebook,
-      description: "Leather journals and professional notebooks for the modern desk."
+      description: "Whether it's creating brand awareness, launching a new product, showing employee appreciation or building team morale we have you covered."
     },
     {
       title: "Luxury Tech Accessories",
@@ -33,11 +33,11 @@ export default function Products() {
       description: "High-end corporate gifts including metal pens and tech cases."
     },
     {
-      title: "Custom Apparel",
+      title: "Custom Solutions",
       category: "Merch",
-      image: schoolImage3,
-      icon: Shirt,
-      description: "High-quality screen printing and embroidery for any organization."
+      image: bizImage1,
+      icon: GraduationCap,
+      description: "Our team has over 20 years' experience in promotional marketing."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function Products() {
           className="text-center mb-10"
         >
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase italic">
-            BROWSE <span className="text-primary">PRODUCTS</span>
+            WHAT <span className="text-primary">WE DO</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-            Explore our extensive catalog of promotional products. Find the perfect items to represent your brand.
+            Whether it's creating brand awareness, launching a new product, showing employee appreciation or building team morale we have you covered. Our team has over 20 years' experience in promotional marketing. No matter the industry let us help you take your business to the next level.
           </p>
           
           <a 
