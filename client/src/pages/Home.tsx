@@ -87,14 +87,14 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-32"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
           <Link 
             href="/products"
             className="group relative px-8 py-4 bg-primary text-black font-bold tracking-widest uppercase rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 w-full sm:w-auto"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-              Browse Products <ArrowRight size={20} />
+              See More <ArrowRight size={20} />
             </span>
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </Link>
@@ -106,80 +106,6 @@ export default function Home() {
             Get a Quote <ChevronRight size={20} />
           </Link>
         </motion.div>
-      </section>
-
-      {/* Merch Gallery Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10 border-t border-white/10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase italic">
-            PREMIUM <span className="text-primary">MERCHANDISE</span>
-          </h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            From luxury corporate gifts to high-energy school spirit wear, we deliver quality that represents your brand.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {merchItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors"
-            >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <item.icon className="w-4 h-4 text-primary" />
-                  <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-xs text-gray-400 leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Corporate promo highlights */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <div className="bg-gradient-to-br from-primary/20 to-purple-900/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1">
-            <h2 className="text-4xl font-black text-white mb-6 uppercase">Corporate Excellence</h2>
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Elevate your business presence with high-end pens, metal accessories, and custom leather goods. We specialize in products that make a lasting impression on your high-value clients.
-            </p>
-            <div className="flex gap-6 mb-8">
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-primary border border-primary/20">
-                  <PenTool />
-                </div>
-                <span className="text-[10px] uppercase font-bold text-white/60 tracking-tighter">Premium Pens</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-primary border border-primary/20">
-                  <Coffee />
-                </div>
-                <span className="text-[10px] uppercase font-bold text-white/60 tracking-tighter">Luxury Drinkware</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1 grid grid-cols-2 gap-4">
-             <img src={bizImage3} className="rounded-2xl border border-white/10" alt="Promo product 1" />
-             <img src={bizImage4} className="rounded-2xl border border-white/10 mt-8" alt="Promo product 2" />
-          </div>
-        </div>
       </section>
     </div>
   );

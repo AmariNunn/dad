@@ -1,7 +1,46 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, GraduationCap, Building2, PenTool, Coffee, Notebook, Shirt } from "lucide-react";
+
+// Asset imports
+import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
+import schoolImage3 from "@assets/stock_images/premium_school_spiri_981b951f.jpg";
+import bizImage1 from "@assets/stock_images/luxury_corporate_gif_16731289.jpg";
+import bizImage2 from "@assets/stock_images/luxury_corporate_gif_ae4c74ef.jpg";
+import bizImage3 from "@assets/stock_images/luxury_corporate_gif_16731289.jpg"; // Using available assets
+import bizImage4 from "@assets/stock_images/luxury_corporate_gif_ae4c74ef.jpg"; // Using available assets
 
 export default function Products() {
+  const merchItems = [
+    {
+      title: "School Spirit Wear",
+      category: "Education",
+      image: schoolImage1,
+      icon: GraduationCap,
+      description: "Premium hoodies and varsity jackets for ultimate team pride."
+    },
+    {
+      title: "Executive Stationery",
+      category: "Corporate",
+      image: bizImage1,
+      icon: Notebook,
+      description: "Leather journals and professional notebooks for the modern desk."
+    },
+    {
+      title: "Luxury Tech Accessories",
+      category: "Corporate",
+      image: bizImage2,
+      icon: Building2,
+      description: "High-end corporate gifts including metal pens and tech cases."
+    },
+    {
+      title: "Custom Apparel",
+      category: "Merch",
+      image: schoolImage3,
+      icon: Shirt,
+      description: "High-quality screen printing and embroidery for any organization."
+    }
+  ];
+
   return (
     <div className="pt-32 pb-20 min-h-screen flex flex-col">
       <div className="container mx-auto px-4 flex-grow flex flex-col">
@@ -11,7 +50,7 @@ export default function Products() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase italic">
             BROWSE <span className="text-primary">PRODUCTS</span>
           </h1>
           <p className="text-gray-400 max-w-2xl mx-auto mb-8">
@@ -22,17 +61,91 @@ export default function Products() {
             href="https://thetrimovement.espwebsite.com/" 
             target="_blank" 
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-white font-medium transition-all hover:scale-105 mb-12"
           >
-            Open in New Tab <ExternalLink size={16} />
+            Open Online Store <ExternalLink size={16} />
           </a>
         </motion.div>
 
+        {/* Merch Gallery Section - Moved from Home */}
+        <section className="mb-20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-2xl md:text-4xl font-black text-white mb-4 uppercase">
+              PREMIUM <span className="text-primary">MERCHANDISE</span>
+            </h2>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">
+              From luxury corporate gifts to high-energy school spirit wear, we deliver quality that represents your brand.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {merchItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors"
+              >
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <item.icon className="w-4 h-4 text-primary" />
+                    <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-[10px] text-gray-400 leading-relaxed">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Corporate Excellence Section - Moved from Home */}
+        <section className="mb-20">
+          <div className="bg-gradient-to-br from-primary/20 to-purple-900/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1">
+              <h2 className="text-3xl font-black text-white mb-6 uppercase">Corporate Excellence</h2>
+              <p className="text-gray-300 text-base mb-8 leading-relaxed">
+                Elevate your business presence with high-end pens, metal accessories, and custom leather goods. We specialize in products that make a lasting impression on your high-value clients.
+              </p>
+              <div className="flex gap-6 mb-8">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-primary/20">
+                    <PenTool size={18} />
+                  </div>
+                  <span className="text-[9px] uppercase font-bold text-white/60 tracking-tighter">Premium Pens</span>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-primary border border-primary/20">
+                    <Coffee size={18} />
+                  </div>
+                  <span className="text-[9px] uppercase font-bold text-white/60 tracking-tighter">Luxury Drinkware</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 grid grid-cols-2 gap-4">
+               <img src={bizImage3} className="rounded-2xl border border-white/10" alt="Promo product 1" />
+               <img src={bizImage4} className="rounded-2xl border border-white/10 mt-6" alt="Promo product 2" />
+            </div>
+          </div>
+        </section>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex-grow w-full glass-panel rounded-2xl overflow-hidden shadow-2xl border-primary/20"
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex-grow w-full glass-panel rounded-2xl overflow-hidden shadow-2xl border-primary/20 mt-10"
         >
           <iframe 
             src="https://thetrimovement.espwebsite.com/" 
