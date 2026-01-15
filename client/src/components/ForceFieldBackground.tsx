@@ -54,25 +54,16 @@ export function ForceFieldBackground({
       let originalImg: p5.Image;
       let points: any[] = [];
       let palette: p5.Color[] = [];
-
-      p.preload = () => {
-        // Load image with CORS handling
-        p.loadImage(
-          imageUrl, 
-          (img) => { 
-            originalImg = img; 
-            // Trigger setup logic once image is loaded if setup already ran
-            if (p.width > 0) initializePoints();
-          }, 
-          () => console.error("Failed to load image")
-        );
-      };
+      let isImageLoaded = false;
 
       const initializePoints = () => {
-        if (!originalImg) return;
+        if (!originalImg || !containerRef.current) return;
         
+        const { clientWidth, clientHeight } = containerRef.current;
+        if (clientWidth === 0 || clientHeight === 0) return;
+
         // Resize image to fit canvas
-        originalImg.resize(p.width, p.height);
+        originalImg.resize(clientWidth, clientHeight);
         originalImg.loadPixels();
         
         // Generate neon palette
@@ -86,9 +77,8 @@ export function ForceFieldBackground({
 
         // Generate points based on image brightness
         points = [];
-        for (let x = 0; x < p.width; x += spacing) {
-          for (let y = 0; y < p.height; y += spacing) {
-            // Calculate pixel index safely
+        for (let x = 0; x < clientWidth; x += spacing) {
+          for (let y = 0; y < clientHeight; y += spacing) {
             const px = Math.floor(x);
             const py = Math.floor(y);
             const i = (px + py * originalImg.width) * 4;
@@ -99,11 +89,9 @@ export function ForceFieldBackground({
               const b = originalImg.pixels[i + 2];
               const brightness = (r + g + b) / 3;
               
-              // Only create points in brighter areas (or darker if inverted)
               const val = invertImage ? 255 - brightness : brightness;
               
               if (val > threshold) {
-                // Add randomness for organic distribution
                 if (p.random(100) < density * 30) {
                   points.push({
                     pos: p.createVector(x, y),
@@ -120,17 +108,26 @@ export function ForceFieldBackground({
       };
 
       p.setup = () => {
-        p.createCanvas(containerRef.current!.clientWidth, containerRef.current!.clientHeight);
-        initializePoints();
+        if (!containerRef.current) return;
+        p.createCanvas(containerRef.current.clientWidth, containerRef.current.clientHeight);
+        
+        // Load image with CORS handling in setup instead of preload for p5.js 2.0+
+        p.loadImage(
+          imageUrl, 
+          (img) => { 
+            originalImg = img; 
+            isImageLoaded = true;
+            initializePoints();
+          }, 
+          () => console.error("Failed to load image")
+        );
       };
 
       p.draw = () => {
         p.clear();
-        p.noFill();
-        
-        // Check if points are initialized
-        if (points.length === 0) return;
+        if (!isImageLoaded || points.length === 0) return;
 
+        p.noFill();
         points.forEach(pt => {
           // Force field physics based on mouse position
           const mouse = p.createVector(p.mouseX, p.mouseY);
