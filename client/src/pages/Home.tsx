@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt } from "lucide-react";
 import { ShootingStars } from "@/components/ShootingStars";
+import clientLogos from "@assets/client-logos_1768588141832.webp";
 
 // Asset imports
 import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
@@ -103,6 +104,36 @@ export default function Home() {
           >
             Get a Quote <ChevronRight size={20} />
           </Link>
+        </motion.div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="container mx-auto px-4 py-20 border-t border-white/5">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tighter">Trusted By Industry Leaders</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-sm">
+            We've had the privilege of working with a diverse range of organizations, helping them bring their brand vision to life through innovative promotional solutions.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12"
+        >
+          <img 
+            src={clientLogos} 
+            alt="TRI Creative Group Past Clients" 
+            className="w-full max-w-4xl mx-auto opacity-80 hover:opacity-100 transition-opacity duration-500"
+          />
         </motion.div>
       </section>
     </div>
