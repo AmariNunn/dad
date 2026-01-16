@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import logoImg from "@assets/TRI_creative_group_lines_1768588485439.png";
+import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
 
 export function Navigation() {
   const [location] = useLocation();
@@ -26,7 +26,7 @@ export function Navigation() {
           <img 
             src={logoImg} 
             alt="TRI Creative Group Logo" 
-            className="h-12 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-110 group-hover:brightness-100 group-hover:invert-0"
+            className="h-10 w-auto transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
           />
         </Link>
 
