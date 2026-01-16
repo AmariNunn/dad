@@ -2,7 +2,8 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import logoImg from "@assets/TRI_creative_group_lines_1768588485439.png";
 
 export function Navigation() {
   const [location] = useLocation();
@@ -22,12 +23,11 @@ export function Navigation() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-tr-xl rounded-bl-xl flex items-center justify-center group-hover:bg-white transition-colors duration-300">
-            <span className="text-black font-display font-bold text-xl">TRI</span>
-          </div>
-          <span className="font-display font-bold text-xl tracking-widest text-white group-hover:text-primary transition-colors">
-            CREATIVE
-          </span>
+          <img 
+            src={logoImg} 
+            alt="TRI Creative Group Logo" 
+            className="h-12 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-110 group-hover:brightness-100 group-hover:invert-0"
+          />
         </Link>
 
         {/* Desktop Nav */}
