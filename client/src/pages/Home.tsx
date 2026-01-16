@@ -3,6 +3,13 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt } from "lucide-react";
 import { ShootingStars } from "@/components/ShootingStars";
 
+// Asset imports
+import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
+import schoolImage3 from "@assets/stock_images/custom_branded_appar_b6531585.jpg";
+
+import bizImage1 from "@assets/stock_images/high-end_office_desk_eaedea1b.jpg";
+import bizImage2 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
+
 export default function Home() {
   const merchItems = [
     {
