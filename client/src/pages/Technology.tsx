@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Star, ShieldCheck, KeyRound, ExternalLink, DollarSign, Monitor, Users, MessageSquare, ChevronLeft } from "lucide-react";
+import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Star, ShieldCheck, KeyRound, ExternalLink, DollarSign, Monitor, Users, MessageSquare, ChevronLeft, Award, Phone } from "lucide-react";
 import { ContactCTA } from "@/components/ContactCTA";
 
 const fadeUp = {
@@ -63,7 +63,7 @@ const results = [
     sub: "Revenue Generated",
     body: "We set him up with an AI receptionist and automated follow-up system. He went from chasing customers to closing deals while he slept — $47k+ in new revenue without hiring a single person.",
     label: "Home Services — Nashville, TN",
-    videos: ["/videos/testimonial1.mov", "/videos/testimonial2.mov"],
+    videos: ["/videos/featured1.mp4", "/videos/featured2.mp4"],
   },
   {
     icon: Monitor,
@@ -88,6 +88,22 @@ const results = [
     body: "It started with a single DM. Within 48 hours we had a plan. The result? A custom digital presence that's been generating real inquiries since day one. This is how we work.",
     label: "Client — Nashville, TN",
     videos: ["/videos/promo.mp4"],
+  },
+  {
+    icon: Phone,
+    headline: "Always On",
+    sub: "AI Receptionist",
+    body: "Their phones used to go to voicemail after hours. Now an AI handles every call, qualifies the lead, and books the appointment — before a human ever picks up.",
+    label: "Client — Nashville, TN",
+    videos: ["/videos/testimonial1.mov"],
+  },
+  {
+    icon: Award,
+    headline: "Client For Life",
+    sub: "The Full Experience",
+    body: "This client had worked with agencies before. None of them delivered like this. Hear it straight from them — what it actually feels like to build with TRI Creative.",
+    label: "Client — Nashville, TN",
+    videos: ["/videos/testimonial2.mov"],
   },
 ];
 
@@ -358,7 +374,7 @@ export default function Technology() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {results.map((r) => (
             <motion.div
               key={r.headline}
