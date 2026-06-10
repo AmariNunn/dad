@@ -132,8 +132,12 @@ interface FormData {
 }
 
 async function submitProject(formData: FormData): Promise<void> {
-  console.log("[submitProject] payload:", formData);
-  await new Promise((r) => setTimeout(r, 800));
+  const res = await fetch("https://formspree.io/f/mkoavjwv", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(formData),
+  });
+  if (!res.ok) throw new Error("Submission failed");
 }
 
 function ProjectForm() {
