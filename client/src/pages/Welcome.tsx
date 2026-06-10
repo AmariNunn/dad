@@ -214,9 +214,9 @@ function ProjectForm() {
         {step > 0 && (
           <button
             onClick={() => setStep((s) => s - 1)}
-            className="absolute left-0 flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+            className="absolute left-0 flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back
+            <ArrowLeft className="w-4 h-4" /> Back
           </button>
         )}
         {Array.from({ length: totalSteps }).map((_, i) => (
@@ -238,13 +238,13 @@ function ProjectForm() {
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
           >
-            <p className="text-xs uppercase tracking-widest text-[#00A3E0] mb-2 font-bold">
+            <p className="text-sm uppercase tracking-widest text-[#00A3E0] mb-3 font-bold">
               Step {step + 1} of {totalSteps}
             </p>
-            <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: "var(--font-display)" }}>
+            <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
               {currentOptionStep.question}
             </h3>
-            <p className="text-sm text-gray-400 mb-6">{currentOptionStep.hint}</p>
+            <p className="text-base text-gray-400 mb-6">{currentOptionStep.hint}</p>
             <div className="space-y-3">
               {currentOptionStep.options.map((opt) => {
                 const selected = selections[currentOptionStep.id] === opt.label;
@@ -252,15 +252,15 @@ function ProjectForm() {
                   <button
                     key={opt.label}
                     onClick={() => selectOption(currentOptionStep.id, opt.label)}
-                    className={`w-full text-left flex items-center gap-4 px-5 py-4 rounded-xl border transition-all duration-200 ${
+                    className={`w-full text-left flex items-center gap-4 px-5 py-5 rounded-xl border transition-all duration-200 ${
                       selected
                         ? "border-[#00A3E0] bg-[#00A3E0]/15 text-white"
                         : "border-white/10 bg-white/5 text-gray-300 hover:border-white/30 hover:bg-white/10"
                     }`}
                   >
-                    <span className="text-xl">{opt.emoji}</span>
-                    <span className="font-semibold text-sm">{opt.label}</span>
-                    {selected && <CheckCircle className="w-4 h-4 text-[#00A3E0] ml-auto" />}
+                    <span className="text-2xl">{opt.emoji}</span>
+                    <span className="font-semibold text-base">{opt.label}</span>
+                    {selected && <CheckCircle className="w-5 h-5 text-[#00A3E0] ml-auto" />}
                   </button>
                 );
               })}
@@ -274,13 +274,13 @@ function ProjectForm() {
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.25 }}
           >
-            <p className="text-xs uppercase tracking-widest text-[#00A3E0] mb-2 font-bold">
+            <p className="text-sm uppercase tracking-widest text-[#00A3E0] mb-3 font-bold">
               Step {totalSteps} of {totalSteps}
             </p>
-            <h3 className="text-xl font-black text-white mb-1" style={{ fontFamily: "var(--font-display)" }}>
+            <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
               Last step — how do we reach you?
             </h3>
-            <p className="text-sm text-gray-400 mb-6">No cost and no commitment to begin.</p>
+            <p className="text-base text-gray-400 mb-6">No cost and no commitment to begin.</p>
             <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div>
                 <input
@@ -288,11 +288,11 @@ function ProjectForm() {
                   placeholder="Your name *"
                   value={contact.name}
                   onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
-                  className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#00A3E0] transition-colors ${
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
                     errors.name ? "border-red-500" : "border-white/10"
                   }`}
                 />
-                {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
               </div>
               <div>
                 <input
@@ -300,11 +300,11 @@ function ProjectForm() {
                   placeholder="Business / organization *"
                   value={contact.business}
                   onChange={(e) => setContact((c) => ({ ...c, business: e.target.value }))}
-                  className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#00A3E0] transition-colors ${
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
                     errors.business ? "border-red-500" : "border-white/10"
                   }`}
                 />
-                {errors.business && <p className="text-red-400 text-xs mt-1">{errors.business}</p>}
+                {errors.business && <p className="text-red-400 text-sm mt-1">{errors.business}</p>}
               </div>
               <div>
                 <input
@@ -312,11 +312,11 @@ function ProjectForm() {
                   placeholder="Email address *"
                   value={contact.email}
                   onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
-                  className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#00A3E0] transition-colors ${
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
                     errors.email ? "border-red-500" : "border-white/10"
                   }`}
                 />
-                {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
+                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <input
@@ -324,7 +324,7 @@ function ProjectForm() {
                   placeholder="Best phone number (optional)"
                   value={contact.phone}
                   onChange={(e) => setContact((c) => ({ ...c, phone: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#00A3E0] transition-colors"
+                  className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors"
                 />
               </div>
               <div>
@@ -333,17 +333,17 @@ function ProjectForm() {
                   placeholder="Anything else? A logo, an event date, a wild idea… (optional)"
                   value={contact.notes}
                   onChange={(e) => setContact((c) => ({ ...c, notes: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-[#00A3E0] transition-colors"
+                  className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors"
                 />
               </div>
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-sm uppercase tracking-widest transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
+                className="w-full py-5 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
               >
-                {submitting ? "Sending…" : <>Start My Project <ArrowRight className="w-4 h-4" /></>}
+                {submitting ? "Sending…" : <>Start My Project <ArrowRight className="w-5 h-5" /></>}
               </button>
-              <p className="text-center text-xs text-gray-500">No cost and no commitment to begin. We'll reply within one business day.</p>
+              <p className="text-center text-sm text-gray-500">No cost and no commitment to begin. We'll reply within one business day.</p>
             </form>
           </motion.div>
         )}
@@ -529,19 +529,16 @@ export default function Welcome() {
 
       {/* ── FORM ──────────────────────────────────────────────────────────── */}
       <section id="project-form" className="px-4 py-12">
-        <div className="max-w-lg mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 shadow-[0_0_60px_rgba(0,163,224,0.1)]">
-          <div className="text-center mb-8">
-            <h2
-              className="text-2xl font-black text-white mb-2"
-              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-            >
-              Start Your Project
-            </h2>
-            <p className="text-sm text-gray-400" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-              Three quick questions — most people finish in under two minutes. We'll take the design from here.
-            </p>
+        <div className="max-w-md mx-auto">
+          <h2
+            className="text-3xl font-black text-white mb-6 text-center"
+            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+          >
+            Start Your Project
+          </h2>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-[0_0_60px_rgba(0,163,224,0.1)]">
+            <ProjectForm />
           </div>
-          <ProjectForm />
         </div>
       </section>
 
