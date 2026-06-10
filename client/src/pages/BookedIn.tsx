@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, Plus, Minus, Gift, Trophy, Megaphone, ArrowRight } from "lucide-react";
+import { CheckCircle, Plus, Minus, Gift, Trophy, Megaphone } from "lucide-react";
 import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
 import clientLogosImg from "@assets/client-logos_1768588141832-LlhLCFRX_1781129145911.webp";
 import { ShootingStars } from "@/components/ShootingStars";
@@ -40,19 +40,6 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         )}
       </AnimatePresence>
     </div>
-  );
-}
-
-// ─── CTA Button ───────────────────────────────────────────────────────────────
-
-function CTAButton({ label = "Start Another Project →" }: { label?: string }) {
-  return (
-    <a
-      href="/welcome"
-      className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest transition-all duration-200 hover:scale-105 shadow-[0_0_24px_rgba(0,163,224,0.35)]"
-    >
-      {label} <ArrowRight className="w-4 h-4" />
-    </a>
   );
 }
 
@@ -227,12 +214,9 @@ export default function BookedIn() {
                 </div>
               ))}
             </div>
-            <p className="text-center text-base text-gray-400 italic mb-8" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+            <p className="text-center text-base text-gray-400 italic" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
               The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
             </p>
-            <div className="text-center">
-              <CTAButton />
-            </div>
           </div>
         </motion.section>
 
