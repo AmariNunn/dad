@@ -18,6 +18,7 @@ import logoWebp from "@/assets/images/logo.webp";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import Products from "@/pages/Products";
+import Technology from "@/pages/Technology";
 import Quote from "@/pages/Quote";
 import Welcome from "@/pages/Welcome";
 import BookedIn from "@/pages/BookedIn";
@@ -47,6 +48,9 @@ function Router() {
         </Route>
         <Route path="/products">
           <PageWrapper><Products /></PageWrapper>
+        </Route>
+        <Route path="/technology">
+          <PageWrapper><Technology /></PageWrapper>
         </Route>
         <Route path="/quote">
           <PageWrapper><Quote /></PageWrapper>

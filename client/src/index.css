@@ -68,3 +68,8 @@
     box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
   }
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}

@@ -13,6 +13,7 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
     { href: "/products", label: "Products" },
+    { href: "/technology", label: "Technology" },
     { href: "/quote", label: "Get Quote" },
   ];
 
