@@ -559,19 +559,6 @@ export default function Welcome() {
             {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
           </div>
 
-          {/* Final CTA block */}
-          <div className="text-center border border-white/10 rounded-2xl p-10 bg-white/5">
-            <HelpCircle className="w-8 h-8 text-[#00A3E0] mx-auto mb-4 opacity-70" />
-            <h3
-              className="text-xl font-black text-white mb-4"
-              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-            >
-              Still Reading? Let's Just{" "}
-              <span className="text-[#00A3E0]">Start the Conversation.</span>
-            </h3>
-            <CTAButton />
-            <p className="text-xs text-gray-500 mt-4">Two minutes. We'll bring the design. You bring the vision.</p>
-          </div>
         </div>
       </motion.section>
 
