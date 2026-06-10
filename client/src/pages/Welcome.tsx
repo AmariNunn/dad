@@ -441,7 +441,6 @@ export default function Welcome() {
         className="fixed inset-0"
       />
       <ShootingStars />
-
       <div className="relative z-10">
 
         {/* ── HERO ──────────────────────────────────────────────────────────── */}
@@ -464,7 +463,7 @@ export default function Welcome() {
               style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "-0.02em" }}
             >
               Your Brand Deserves to Be{" "}
-              <span className="text-[#00A3E0]">Carried Proudly.</span>
+              <span className="text-[#00A3E0]">Represented Proudly.</span>
             </motion.h1>
 
             <motion.p
