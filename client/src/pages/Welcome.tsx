@@ -488,6 +488,8 @@ export default function Welcome() {
       />
       <ShootingStars />
 
+      <div className="relative z-10">
+
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="px-4 pt-16 pb-4 text-center">
         <div className="max-w-2xl mx-auto">
@@ -784,6 +786,8 @@ export default function Welcome() {
           &copy; {new Date().getFullYear()} Tri Creative Group. All rights reserved.
         </p>
       </footer>
+
+      </div>
     </div>
   );
 }
