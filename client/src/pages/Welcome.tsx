@@ -545,6 +545,39 @@ export default function Welcome() {
         </div>
       </section>
 
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <motion.section
+        className="px-4 py-16 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="max-w-xl mx-auto">
+          <h2
+            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
+            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+          >
+            Before You Start —{" "}
+            <span className="text-[#00A3E0]">A Few Things People Ask</span>
+          </h2>
+          <div className="space-y-3 mb-16">
+            {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
+          </div>
+
+          {/* Final CTA block */}
+          <div className="text-center border border-white/10 rounded-2xl p-10 bg-white/5">
+            <HelpCircle className="w-8 h-8 text-[#00A3E0] mx-auto mb-4 opacity-70" />
+            <h3
+              className="text-xl font-black text-white mb-4"
+              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+            >
+              Still Reading? Let's Just{" "}
+              <span className="text-[#00A3E0]">Start the Conversation.</span>
+            </h3>
+            <CTAButton />
+            <p className="text-xs text-gray-500 mt-4">Two minutes. We'll bring the design. You bring the vision.</p>
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
       <motion.section
         className="px-4 py-10 border-t border-white/5"
@@ -741,39 +774,6 @@ export default function Welcome() {
             <br /><br />
             We don't make throwaways. We make the kind of thing people <strong className="text-white">keep, use, and remember.</strong> Because a product that lasts is a message that lasts.
           </p>
-        </div>
-      </motion.section>
-
-      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <motion.section
-        className="px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="max-w-xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
-            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-          >
-            Before You Start —{" "}
-            <span className="text-[#00A3E0]">A Few Things People Ask</span>
-          </h2>
-          <div className="space-y-3 mb-16">
-            {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
-          </div>
-
-          {/* Final CTA block */}
-          <div className="text-center border border-white/10 rounded-2xl p-10 bg-white/5">
-            <HelpCircle className="w-8 h-8 text-[#00A3E0] mx-auto mb-4 opacity-70" />
-            <h3
-              className="text-xl font-black text-white mb-4"
-              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-            >
-              Still Reading? Let's Just{" "}
-              <span className="text-[#00A3E0]">Start the Conversation.</span>
-            </h3>
-            <CTAButton />
-            <p className="text-xs text-gray-500 mt-4">Two minutes. We'll bring the design. You bring the vision.</p>
-          </div>
         </div>
       </motion.section>
 
