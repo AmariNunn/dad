@@ -362,10 +362,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       onClick={() => setOpen((o) => !o)}
     >
       <div className="flex items-center justify-between px-6 py-4 bg-white/5 hover:bg-white/8 transition-colors">
-        <span className="text-sm font-semibold text-white pr-4" style={{ fontFamily: "var(--font-body)" }}>
+        <span className="text-base font-semibold text-white pr-4" style={{ fontFamily: "var(--font-body)" }}>
           {q}
         </span>
-        {open ? <Minus className="w-4 h-4 text-[#00A3E0] shrink-0" /> : <Plus className="w-4 h-4 text-[#00A3E0] shrink-0" />}
+        {open ? <Minus className="w-5 h-5 text-[#00A3E0] shrink-0" /> : <Plus className="w-5 h-5 text-[#00A3E0] shrink-0" />}
       </div>
       <AnimatePresence initial={false}>
         {open && (
@@ -376,7 +376,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="px-6 py-4 text-sm text-gray-400 leading-relaxed border-t border-white/10">{a}</p>
+            <p className="px-6 py-4 text-base text-gray-400 leading-relaxed border-t border-white/10">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -393,7 +393,7 @@ function CTAButton({ label = "Start Your Project →" }: { label?: string }) {
   return (
     <button
       onClick={scrollToForm}
-      className="px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-sm uppercase tracking-widest transition-all duration-200 hover:scale-105 shadow-[0_0_24px_rgba(0,163,224,0.35)]"
+      className="px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest transition-all duration-200 hover:scale-105 shadow-[0_0_24px_rgba(0,163,224,0.35)]"
     >
       {label}
     </button>
@@ -576,7 +576,7 @@ export default function Welcome() {
             alt="Client logos — Nashville SC, Metro Nashville Public Schools, National Museum of African American Music, and more"
             className="w-full max-w-2xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
-          <p className="text-sm text-gray-500 italic mt-6">
+          <p className="text-base text-gray-500 italic mt-6">
             From city government to local favorites — the names you know already carry our work.
           </p>
         </div>
@@ -594,7 +594,7 @@ export default function Welcome() {
           >
             Picture It <span className="text-[#00A3E0]">Done</span>
           </h2>
-          <div className="space-y-4 text-gray-300 leading-relaxed text-[15px]" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+          <div className="space-y-4 text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
             <p>It's the morning of your event. The boxes arrived early — exactly when we promised. Your team opens them and you watch their faces. They're proud to wear it. Proud to hand it out.</p>
             <p>Weeks later, it's still working for you. On a desk across town. In a car. On someone's shoulder at the grocery store. Your name, still in the room, long after you've left it.</p>
             <p className="text-white font-semibold">That's not a giveaway. That's a brand that travels.</p>
@@ -614,7 +614,7 @@ export default function Welcome() {
           >
             You Won't Be <span className="text-[#00A3E0]">Juggling This Alone</span>
           </h2>
-          <div className="space-y-4 text-gray-300 leading-relaxed text-[15px]" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+          <div className="space-y-4 text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
             <p>No five vendors. No five logins. No rep learning your brand for the first time on a phone call.</p>
             <p>One partner who already gets it. One process. One person who knows your name and your deadline.</p>
             <p className="text-white font-semibold">We've done this long enough to make it feel easy — because the simplest part of your week should be the part you hand to us.</p>
@@ -647,7 +647,7 @@ export default function Welcome() {
                 >
                   {s.title}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                <p className="text-base text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
                   {s.body}
                 </p>
               </div>
@@ -672,7 +672,7 @@ export default function Welcome() {
             {results.map((r) => (
               <div key={r} className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-4">
                 <CheckCircle className="w-5 h-5 text-[#00A3E0] shrink-0" />
-                <span className="text-white text-sm font-semibold text-left" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                <span className="text-white text-base font-semibold text-left" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
                   {r}
                 </span>
               </div>
@@ -703,16 +703,16 @@ export default function Welcome() {
                 <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>
                   "{t.quote}"
                 </p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
                   {t.body}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-sm text-gray-500">
                   — {t.author}, {t.title}, {t.org}
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 italic mb-8" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+          <p className="text-center text-base text-gray-400 italic mb-8" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
             The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
           </p>
           <div className="text-center">
@@ -734,7 +734,7 @@ export default function Welcome() {
             More Than Merch —{" "}
             <span className="text-[#00A3E0]">A Lasting Impression</span>
           </h2>
-          <p className="text-gray-300 leading-relaxed text-[15px]" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+          <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
             The right product does more than fill a goodie bag. It powers your brand, draws attention at your next event, and turns a single moment into a lasting memory. Long after the day is over, your message keeps working — sitting on a desk, riding in a car, worn around town.
           </p>
         </div>
@@ -753,7 +753,7 @@ export default function Welcome() {
             Built Here. For the People Who{" "}
             <span className="text-[#00A3E0]">Built Here.</span>
           </h2>
-          <p className="text-gray-300 leading-relaxed text-[15px]" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+          <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
             Tri Creative Group is a Nashville company. The businesses we serve are the ones that made this city what it is — and we think those businesses deserve a partner who's part of the same streets.
             <br /><br />
             We don't make throwaways. We make the kind of thing people <strong className="text-white">keep, use, and remember.</strong> Because a product that lasts is a message that lasts.
@@ -764,14 +764,14 @@ export default function Welcome() {
       {/* ── FOOTER ────────────────────────────────────────────────────────── */}
       <footer className="px-4 py-12 border-t border-white/10 text-center">
         <img src={logoImg} alt="TRI Creative Group" className="h-10 mx-auto mb-4 opacity-70" />
-        <p className="text-sm font-bold text-white mb-1">Tri Creative Group — Nashville, TN</p>
-        <p className="text-xs text-gray-500 mb-3">
+        <p className="text-base font-bold text-white mb-1">Tri Creative Group — Nashville, TN</p>
+        <p className="text-sm text-gray-500 mb-3">
           Info@TRIcreativegroup.com · 615.850.5260
         </p>
-        <p className="text-xs text-gray-600 italic mb-4">
+        <p className="text-sm text-gray-600 italic mb-4">
           Proudly local. Promotional products that leave a message and last.
         </p>
-        <p className="text-xs text-gray-700">
+        <p className="text-sm text-gray-700">
           &copy; {new Date().getFullYear()} Tri Creative Group. All rights reserved.
         </p>
       </footer>
