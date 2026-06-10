@@ -215,12 +215,12 @@ export default function Technology() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-5 max-w-6xl mx-auto">
           {builds.map((b) => (
             <motion.div
               key={b.name}
               variants={fadeUp}
-              className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-colors flex flex-col"
+              className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] bg-white/5 border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-colors flex flex-col"
             >
               <div className="w-full h-36 rounded-lg overflow-hidden border border-white/5 mb-4 bg-white/5">
                 <img src={b.img} alt={b.name} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
@@ -292,65 +292,22 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* ── RESULTS ───────────────────────────────────────────────────────────── */}
+      {/* ── RESULTS + VIDEO TESTIMONIALS (combined) ───────────────────────────── */}
       <motion.section
         className="container mx-auto px-4 py-16 border-t border-white/5"
         variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
       >
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
-            Real Results. <span className="text-primary">Real Clients.</span>
+            Real Results. <span className="text-primary">Hear It Direct.</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
             Watch what happens when Nashville businesses get a real digital stack — website, booking, and AI that closes deals around the clock.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {results.map((r) => (
-            <motion.div
-              key={r.headline}
-              variants={fadeUp}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-primary/30 transition-colors"
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                  <r.icon className="w-4 h-4 text-primary" />
-                </div>
-                <div>
-                  <p className="text-2xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
-                  <p className="text-xs font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
-                </div>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4" style={{ textTransform: "none" }}>{r.body}</p>
-              <p className="text-xs text-gray-600 italic">— {r.label}</p>
-              <Link
-                href="/quote"
-                className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
-              >
-                Book a Free Call <ArrowRight className="w-3 h-3" />
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-      {/* ── VIDEO TESTIMONIALS ────────────────────────────────────────────────── */}
-      <motion.section
-        className="container mx-auto px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
-            Hear It From <span className="text-primary">The Clients.</span>
-          </h2>
-          <p className="text-gray-300 text-lg max-w-xl mx-auto">
-            Real people. Real builds. Real results.
-          </p>
-        </div>
-
-        {/* Featured promo top */}
-        <div className="max-w-3xl mx-auto mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/5">
+        {/* Featured promo — full width */}
+        <div className="max-w-3xl mx-auto my-10 rounded-2xl overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10 ring-1 ring-primary/10">
           <video
             src="/videos/promo.mp4"
             controls
@@ -361,25 +318,56 @@ export default function Technology() {
           />
         </div>
 
-        {/* 4 client testimonials in 2x2 grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {[
-            "/videos/testimonial1.mov",
-            "/videos/testimonial2.mov",
-            "/videos/testimonial3.mp4",
-            "/videos/testimonial4.mp4",
-          ].map((src) => (
-            <div key={src} className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
-              <video
-                src={src}
-                controls
-                playsInline
-                muted
-                preload="auto"
-                className="w-full h-auto block"
-              />
-            </div>
-          ))}
+        {/* 4 combined stat + video cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {results.map((r, i) => {
+            const videos = [
+              "/videos/testimonial1.mov",
+              "/videos/testimonial2.mov",
+              "/videos/testimonial3.mp4",
+              "/videos/testimonial4.mp4",
+            ];
+            return (
+              <motion.div
+                key={r.headline}
+                variants={fadeUp}
+                className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-colors flex flex-col"
+              >
+                {/* Video on top */}
+                <div className="relative bg-black">
+                  <video
+                    src={videos[i]}
+                    controls
+                    playsInline
+                    muted
+                    preload="auto"
+                    className="w-full h-auto block"
+                  />
+                </div>
+
+                {/* Stat + copy below */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start gap-4 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                      <r.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
+                      <p className="text-xs font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
+                  <p className="text-xs text-gray-600 italic mb-4">— {r.label}</p>
+                  <Link
+                    href="/quote"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
+                  >
+                    Book a Free Call <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </motion.section>
 
