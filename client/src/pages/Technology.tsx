@@ -74,22 +74,6 @@ const results = [
     videos: ["/videos/promo.mp4"],
   },
   {
-    icon: Phone,
-    headline: "Always On",
-    sub: "AI Receptionist",
-    body: "Their phones used to go to voicemail after hours. Now an AI handles every call, qualifies the lead, and books the appointment — before a human ever picks up.",
-    label: "Client — Nashville, TN",
-    videos: ["/videos/testimonial1.mov"],
-  },
-  {
-    icon: Award,
-    headline: "Client For Life",
-    sub: "The Full Experience",
-    body: "This client had worked with agencies before. None of them delivered like this. Hear it straight from them — what it actually feels like to build with TRI Creative.",
-    label: "Client — Nashville, TN",
-    videos: ["/videos/testimonial2.mov"],
-  },
-  {
     icon: CalendarDays,
     headline: "Booked. Period.",
     sub: "New Website → Real Bookings",
@@ -374,7 +358,7 @@ export default function Technology() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {results.map((r) => (
             <motion.div
               key={r.headline}
