@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Star, ShieldCheck, KeyRound, ExternalLink, DollarSign, Rocket, Users, MessageSquare } from "lucide-react";
+import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Star, ShieldCheck, KeyRound, ExternalLink, DollarSign, Monitor, Users, MessageSquare, ChevronLeft } from "lucide-react";
 import { ContactCTA } from "@/components/ContactCTA";
 
 const fadeUp = {
@@ -62,29 +63,80 @@ const results = [
     sub: "Revenue Generated",
     body: "We set him up with an AI receptionist and automated follow-up system. He went from chasing customers to closing deals while he slept — $47k+ in new revenue without hiring a single person.",
     label: "Home Services — Nashville, TN",
+    videos: ["/videos/testimonial1.mov", "/videos/testimonial2.mov"],
   },
   {
-    icon: Rocket,
-    headline: "Launch Ready",
-    sub: "Built & Live",
-    body: "From first conversation to live site — done right. No endless revisions, no agency runaround. Just a real product, polished and working.",
-    label: "Client — Nashville, TN",
+    icon: Monitor,
+    headline: "New Identity",
+    sub: "Website + Full Brand",
+    body: "This client came with no digital presence and left with a complete brand identity — logo, website, and a look that actually represents who they are. Now they show up everywhere like they mean it.",
+    label: "Creative Professional — Nashville, TN",
+    videos: ["/videos/testimonial3.mp4"],
   },
   {
     icon: Users,
-    headline: "More Leads",
-    sub: "Automated Follow-Up",
-    body: "Our AI doesn't clock out. Every inquiry gets followed up the moment it comes in. This client stopped losing leads to slow response times and started converting them instead.",
-    label: "Client — Nashville, TN",
+    headline: "Booked Out",
+    sub: "AI Booking System",
+    body: "We integrated an AI-powered booking system that captures appointments around the clock. Within the first week, they had bookings coming in while they slept — no chasing, no phone tag.",
+    label: "Service Business — Nashville, TN",
+    videos: ["/videos/testimonial4.mp4"],
   },
   {
     icon: MessageSquare,
-    headline: "DM → Deal",
-    sub: "Website That Converts",
-    body: "One message, one build, one result. We turned a simple conversation into a full website that actually brings in business.",
+    headline: "One DM",
+    sub: "From Message to Build",
+    body: "It started with a single DM. Within 48 hours we had a plan. The result? A custom digital presence that's been generating real inquiries since day one. This is how we work.",
     label: "Client — Nashville, TN",
+    videos: ["/videos/promo.mp4"],
   },
 ];
+
+// ─── Video Carousel ───────────────────────────────────────────────────────────
+
+function VideoCarousel({ srcs }: { srcs: string[] }) {
+  const [idx, setIdx] = useState(0);
+  const prev = () => setIdx((i) => (i - 1 + srcs.length) % srcs.length);
+  const next = () => setIdx((i) => (i + 1) % srcs.length);
+  return (
+    <div className="relative bg-black aspect-video group">
+      <video
+        key={srcs[idx]}
+        src={srcs[idx]}
+        controls
+        playsInline
+        muted
+        preload="auto"
+        onPlay={(e) => { e.currentTarget.muted = false; }}
+        className="w-full h-full object-contain"
+      />
+      {srcs.length > 1 && (
+        <>
+          <button
+            onClick={prev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary/80 hover:border-primary"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-primary/80 hover:border-primary"
+          >
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+            {srcs.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                className={`w-2 h-2 rounded-full transition-colors ${i === idx ? "bg-primary" : "bg-white/30 hover:bg-white/60"}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -297,7 +349,7 @@ export default function Technology() {
         className="container mx-auto px-4 py-16 border-t border-white/5"
         variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
       >
-        <div className="text-center mb-4">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
             Real Results. <span className="text-primary">Hear It Direct.</span>
           </h2>
@@ -306,68 +358,38 @@ export default function Technology() {
           </p>
         </div>
 
-        {/* Featured promo — full width */}
-        <div className="max-w-3xl mx-auto my-10 rounded-2xl overflow-hidden border border-primary/20 shadow-2xl shadow-primary/10 ring-1 ring-primary/10">
-          <video
-            src="/videos/promo.mp4"
-            controls
-            playsInline
-            muted
-            preload="auto"
-            className="w-full h-auto block"
-          />
-        </div>
-
-        {/* 4 combined stat + video cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {results.map((r, i) => {
-            const videos = [
-              "/videos/testimonial1.mov",
-              "/videos/testimonial2.mov",
-              "/videos/testimonial3.mp4",
-              "/videos/testimonial4.mp4",
-            ];
-            return (
-              <motion.div
-                key={r.headline}
-                variants={fadeUp}
-                className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-colors flex flex-col"
-              >
-                {/* Video on top */}
-                <div className="relative bg-black">
-                  <video
-                    src={videos[i]}
-                    controls
-                    playsInline
-                    muted
-                    preload="auto"
-                    className="w-full h-auto block"
-                  />
-                </div>
+          {results.map((r) => (
+            <motion.div
+              key={r.headline}
+              variants={fadeUp}
+              className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-primary/30 transition-colors flex flex-col"
+            >
+              {/* Video carousel on top */}
+              <VideoCarousel srcs={r.videos} />
 
-                {/* Stat + copy below */}
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start gap-4 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                      <r.icon className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
-                      <p className="text-xs font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
-                    </div>
+              {/* Stat + copy below */}
+              <div className="p-5 flex flex-col flex-1">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                    <r.icon className="w-4 h-4 text-primary" />
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
-                  <p className="text-xs text-gray-600 italic mb-4">— {r.label}</p>
-                  <Link
-                    href="/quote"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
-                  >
-                    Book a Free Call <ArrowRight className="w-3 h-3" />
-                  </Link>
+                  <div>
+                    <p className="text-xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
+                    <p className="text-[10px] font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
+                  </div>
                 </div>
-              </motion.div>
-            );
-          })}
+                <p className="text-gray-400 text-xs leading-relaxed mb-3 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
+                <p className="text-[10px] text-gray-600 italic mb-3">— {r.label}</p>
+                <Link
+                  href="/quote"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
+                >
+                  Book a Free Call <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.section>
 
