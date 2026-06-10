@@ -542,25 +542,6 @@ export default function Welcome() {
         </div>
       </section>
 
-      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <motion.section
-        className="px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="max-w-xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
-            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-          >
-            A Few Things <span className="text-[#00A3E0]">People Ask</span>
-          </h2>
-          <div className="space-y-3 mb-16">
-            {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
-          </div>
-
-        </div>
-      </motion.section>
-
       {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
       <motion.section
         className="px-4 py-10 border-t border-white/5"
@@ -617,6 +598,24 @@ export default function Welcome() {
           </p>
           <div className="text-center">
             <CTAButton />
+          </div>
+        </div>
+      </motion.section>
+
+      {/* ── FAQ ───────────────────────────────────────────────────────────── */}
+      <motion.section
+        className="px-4 py-16 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="max-w-xl mx-auto">
+          <h2
+            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
+            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+          >
+            A Few Things <span className="text-[#00A3E0]">People Ask</span>
+          </h2>
+          <div className="space-y-3 mb-16">
+            {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
           </div>
         </div>
       </motion.section>
