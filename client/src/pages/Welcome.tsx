@@ -582,6 +582,46 @@ export default function Welcome() {
         </div>
       </motion.section>
 
+      {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
+      <motion.section
+        className="px-4 py-16 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
+            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+          >
+            They Didn't Just Get Products.{" "}
+            <span className="text-[#00A3E0]">They Got Their Time Back.</span>
+          </h2>
+          <div className="space-y-4 mb-10">
+            {testimonials.map((t) => (
+              <div
+                key={t.quote}
+                className="bg-white/5 border border-white/10 rounded-xl p-6"
+              >
+                <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>
+                  "{t.quote}"
+                </p>
+                <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                  {t.body}
+                </p>
+                <p className="text-sm text-gray-500">
+                  — {t.author}, {t.title}, {t.org}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-base text-gray-400 italic mb-8" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+            The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
+          </p>
+          <div className="text-center">
+            <CTAButton />
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── PICTURE IT DONE ───────────────────────────────────────────────── */}
       <motion.section
         className="px-4 py-16 border-t border-white/5"
@@ -677,46 +717,6 @@ export default function Welcome() {
                 </span>
               </div>
             ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
-      <motion.section
-        className="px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
-            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-          >
-            They Didn't Just Get Products.{" "}
-            <span className="text-[#00A3E0]">They Got Their Time Back.</span>
-          </h2>
-          <div className="space-y-4 mb-10">
-            {testimonials.map((t) => (
-              <div
-                key={t.quote}
-                className="bg-white/5 border border-white/10 rounded-xl p-6"
-              >
-                <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>
-                  "{t.quote}"
-                </p>
-                <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-                  {t.body}
-                </p>
-                <p className="text-sm text-gray-500">
-                  — {t.author}, {t.title}, {t.org}
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-base text-gray-400 italic mb-8" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-            The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
-          </p>
-          <div className="text-center">
-            <CTAButton />
           </div>
         </div>
       </motion.section>
