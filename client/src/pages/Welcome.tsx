@@ -378,7 +378,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <p className="px-6 py-4 text-base text-gray-400 leading-relaxed border-t border-white/10">{a}</p>
+            <p className="px-6 py-4 text-lg text-gray-100 leading-relaxed border-t border-white/10" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
