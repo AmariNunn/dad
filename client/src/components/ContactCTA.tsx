@@ -51,7 +51,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <p className="text-xs font-black uppercase tracking-widest text-white mb-0.5">Phone</p>
-                  <p className="text-gray-400 text-sm">615.850.5260</p>
+                  <p className="text-primary text-lg font-bold">615.850.5260</p>
                 </div>
               </div>
 
@@ -61,7 +61,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <p className="text-xs font-black uppercase tracking-widest text-white mb-0.5">Email</p>
-                  <p className="text-gray-400 text-sm">Info@TRIcreativegroup.com</p>
+                  <p className="text-primary text-lg font-bold">Info@TRIcreativegroup.com</p>
                 </div>
               </div>
 
@@ -71,7 +71,7 @@ export function ContactCTA() {
                 </div>
                 <div>
                   <p className="text-xs font-black uppercase tracking-widest text-white mb-0.5">Service Area</p>
-                  <p className="text-gray-400 text-sm">Serving organizations nationwide</p>
+                  <p className="text-white text-lg font-bold">Serving organizations nationwide</p>
                 </div>
               </div>
             </div>

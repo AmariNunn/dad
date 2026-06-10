@@ -335,6 +335,51 @@ export default function Technology() {
         </div>
       </motion.section>
 
+      {/* ── VIDEO TESTIMONIALS ────────────────────────────────────────────────── */}
+      <motion.section
+        className="container mx-auto px-4 py-16 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
+            Hear It From <span className="text-primary">The Clients.</span>
+          </h2>
+          <p className="text-gray-300 text-lg max-w-xl mx-auto">
+            Real people. Real builds. Real results.
+          </p>
+        </div>
+
+        {/* Featured promo top */}
+        <div className="max-w-3xl mx-auto mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/5">
+          <video
+            src="/videos/promo.mp4"
+            controls
+            playsInline
+            className="w-full h-auto block"
+          />
+        </div>
+
+        {/* Two client testimonials */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
+            <video
+              src="/videos/testimonial1.mov"
+              controls
+              playsInline
+              className="w-full h-auto block"
+            />
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
+            <video
+              src="/videos/testimonial2.mov"
+              controls
+              playsInline
+              className="w-full h-auto block"
+            />
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── CONTACT CTA ───────────────────────────────────────────────────────── */}
       <div id="contact">
         <ContactCTA />
