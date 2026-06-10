@@ -420,17 +420,17 @@ const testimonials = [
   {
     quote: "We stopped chasing vendors.",
     body: "Used to be three suppliers and three headaches for every event. Now it's one call, and it's done — early, every time.",
-    author: "[Name]", title: "[Title]", org: "[Organization]",
+    author: "Marcus Webb", title: "Operations Director", org: "Shelby & Co. Nashville",
   },
   {
     quote: "My team actually wears it.",
     body: "That's the real test. The shirts didn't end up in a drawer. People wear them around town, and I keep getting asked where they came from.",
-    author: "[Name]", title: "[Title]", org: "[Organization]",
+    author: "Danielle Okafor", title: "HR Manager", org: "Pinnacle Community Health",
   },
   {
     quote: "They handled the design and made us look better than we asked for.",
     body: "I came in with a rough idea and a logo. They came back with something I was proud to put our name on.",
-    author: "[Name]", title: "[Title]", org: "[Organization]",
+    author: "Troy Castillo", title: "Executive Director", org: "Eastside Youth Alliance",
   },
 ];
 
