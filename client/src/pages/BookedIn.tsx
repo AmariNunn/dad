@@ -143,9 +143,7 @@ export default function BookedIn() {
               <p className="text-lg text-gray-300 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
                 We've got your project details. Someone from our team will reach out within one business day with a few directions to consider — design included.
               </p>
-              <p className="text-base text-gray-500 mt-4 italic">
-                Got a logo or inspiration handy? Reply to our email and send it over — it'll give us a head start.
-              </p>
+
             </motion.div>
           </div>
         </section>
