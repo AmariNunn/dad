@@ -66,22 +66,6 @@ const results = [
     videos: ["/videos/featured1.mp4", "/videos/featured2.mp4"],
   },
   {
-    icon: Monitor,
-    headline: "New Identity",
-    sub: "Website + Full Brand",
-    body: "This client came with no digital presence and left with a complete brand identity — logo, website, and a look that actually represents who they are. Now they show up everywhere like they mean it.",
-    label: "Creative Professional — Nashville, TN",
-    videos: ["/videos/testimonial3.mp4"],
-  },
-  {
-    icon: Users,
-    headline: "Booked Out",
-    sub: "AI Booking System",
-    body: "We integrated an AI-powered booking system that captures appointments around the clock. Within the first week, they had bookings coming in while they slept — no chasing, no phone tag.",
-    label: "Service Business — Nashville, TN",
-    videos: ["/videos/testimonial4.mp4"],
-  },
-  {
     icon: MessageSquare,
     headline: "One DM",
     sub: "From Message to Build",
@@ -374,7 +358,7 @@ export default function Technology() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {results.map((r) => (
             <motion.div
               key={r.headline}
