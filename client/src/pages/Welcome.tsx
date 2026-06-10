@@ -1,7 +1,7 @@
 import { useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Volume2, VolumeX, Play, Pause, ArrowRight,
+  Volume2, VolumeX, Play, Pause, ArrowRight, ArrowLeft,
   CheckCircle, Plus, Minus, Gift, Shirt, Trophy, Megaphone, HelpCircle
 } from "lucide-react";
 import vslVideo from "@assets/0610_1781128078224.mp4";
@@ -209,8 +209,16 @@ function ProjectForm() {
 
   return (
     <div>
-      {/* Progress dots */}
-      <div className="flex justify-center gap-2 mb-8">
+      {/* Progress dots + back button row */}
+      <div className="flex items-center justify-center gap-2 mb-8 relative">
+        {step > 0 && (
+          <button
+            onClick={() => setStep((s) => s - 1)}
+            className="absolute left-0 flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" /> Back
+          </button>
+        )}
         {Array.from({ length: totalSteps }).map((_, i) => (
           <div
             key={i}
