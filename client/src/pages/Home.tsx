@@ -1,6 +1,7 @@
-import { motion } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt } from "lucide-react";
+import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt, Play, Pause, VolumeX, Volume2 } from "lucide-react";
 import { ShootingStars } from "@/components/ShootingStars";
 import clientLogos from "@assets/client-logos_1768588141832.webp";
 import vslVideo from "@assets/0610_1781128078224.mp4";
@@ -11,6 +12,73 @@ import schoolImage3 from "@assets/stock_images/custom_branded_appar_b6531585.jpg
 
 import bizImage1 from "@assets/stock_images/high-end_office_desk_eaedea1b.jpg";
 import bizImage2 from "@assets/stock_images/luxury_promotional_t_e1cedbda.jpg";
+
+function VSLVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [playing, setPlaying] = useState(false);
+  const [hovering, setHovering] = useState(false);
+
+  const handleClick = useCallback(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused || v.ended) {
+      v.currentTime = 0;
+      v.muted = false;
+      setMuted(false);
+      v.play().then(() => setPlaying(true)).catch(() => {});
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  }, []);
+
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,163,224,0.25)] cursor-pointer select-none border border-white/10"
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+      onClick={handleClick}
+    >
+      <video
+        ref={videoRef}
+        src={vslVideo}
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        className="w-full block"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
+        onEnded={() => setPlaying(false)}
+      />
+      <AnimatePresence>
+        {hovering && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/30 flex items-center justify-center"
+          >
+            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/40">
+              {playing ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white ml-1" />}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {muted && (
+        <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20 text-xs text-white/80">
+          <VolumeX className="w-3 h-3" /> <span>Tap to unmute</span>
+        </div>
+      )}
+      {!muted && (
+        <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm px-2 py-1.5 rounded-full border border-white/20 text-xs text-white/60">
+          <Volume2 className="w-3 h-3" />
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const merchItems = [
@@ -115,15 +183,8 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
       >
-        <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-          <video
-            src={vslVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-auto block"
-          />
+        <div className="max-w-3xl mx-auto">
+          <VSLVideo />
         </div>
       </motion.section>
 
