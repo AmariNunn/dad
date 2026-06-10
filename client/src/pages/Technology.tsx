@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Clock, ShieldCheck, KeyRound, ExternalLink, DollarSign, Rocket, Users, MessageSquare } from "lucide-react";
+import { ArrowRight, ChevronRight, Mic, CalendarDays, Globe, Star, ShieldCheck, KeyRound, ExternalLink, DollarSign, Rocket, Users, MessageSquare } from "lucide-react";
 import { ContactCTA } from "@/components/ContactCTA";
 
 const fadeUp = {
@@ -29,24 +29,23 @@ const lanes = [
     icon: Globe,
     tag: "WEB",
     title: "Web Apps & Stores",
-    body: "Custom websites, e-commerce storefronts, member portals, and dashboards. Built fast, built to last — and you own every piece of it.",
+    body: "Custom websites, e-commerce storefronts, member portals, and dashboards. Built with precision, built to last — and you own every piece of it.",
     cta: "Build mine",
   },
 ];
 
 const builds = [
-  { name: "SkyIQ Cloud", desc: "A sleek SaaS landing page showcasing AI-powered voice assistant and telephony solutions for modern businesses.", tags: ["React", "Tailwind", "AI"], url: "https://skyiq.cloud/" },
-  { name: "SkyIQ App", desc: "A full-featured web application delivering intelligent automation and client management tools.", tags: ["React", "Node.js", "Automation"], url: "https://www.skyiq.app/" },
-  { name: "Lyra Robotics", desc: "A forward-thinking robotics and AI company site highlighting innovative automation technology.", tags: ["Next.js", "AI", "Robotics"], url: "https://www.lyrarobotics.io/" },
-  { name: "Onda Floent Money", desc: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.", tags: ["Web Design", "Branding", "Entertainment"], url: "https://ondafloent.money/" },
-  { name: "TRI Creative Group", desc: "A polished creative agency website offering comprehensive branding, design, and digital marketing services.", tags: ["React", "Branding", "Marketing"], url: "https://tricreativegroup.com/" },
-  { name: "Antwon Harris", desc: "A professional personal brand and portfolio site spotlighting expertise, projects, and entrepreneurial ventures.", tags: ["Portfolio", "Personal Brand"], url: "https://antwonharris.com/" },
-  { name: "Saniya Allen", desc: "An elegant personal brand website showcasing talent, artistry, and professional achievements.", tags: ["Artistry", "Personal Brand"], url: "https://saniyaallen.com/" },
-  { name: "Excellence In Motion", desc: "A purpose-driven youth development organization bridging arts, science, and educational excellence.", tags: ["Web Design", "Nonprofit", "Education"], url: "https://excellenceinmotion.org/" },
+  { name: "SkyIQ Cloud", desc: "A sleek SaaS landing page showcasing AI-powered voice assistant and telephony solutions for modern businesses.", tags: ["React", "Tailwind", "AI"], url: "https://skyiq.cloud/", img: "https://amarinunn.tech/images/skyiq-cloud.png" },
+  { name: "SkyIQ App", desc: "A full-featured web application delivering intelligent automation and client management tools.", tags: ["React", "Node.js", "Automation"], url: "https://www.skyiq.app/", img: "https://amarinunn.tech/images/skyiq-app.png" },
+  { name: "Lyra Robotics", desc: "A forward-thinking robotics and AI company site highlighting innovative automation technology.", tags: ["Next.js", "AI", "Robotics"], url: "https://www.lyrarobotics.io/", img: "https://amarinunn.tech/images/lyra-robotics.png" },
+  { name: "Onda Floent", desc: "A dynamic entertainment and music brand site representing the Money on da FLO creative movement.", tags: ["Web Design", "Branding", "Entertainment"], url: "https://ondafloent.money/", img: "https://amarinunn.tech/images/onda-floent.png" },
+  { name: "Antwon Harris", desc: "A professional personal brand and portfolio site spotlighting expertise, projects, and entrepreneurial ventures.", tags: ["Portfolio", "Personal Brand"], url: "https://antwonharris.com/", img: "https://amarinunn.tech/images/antwon-harris.png" },
+  { name: "Saniya Allen", desc: "An elegant personal brand website showcasing talent, artistry, and professional achievements.", tags: ["Artistry", "Personal Brand"], url: "https://saniyaallen.com/", img: "https://amarinunn.tech/images/sani-allen.png" },
+  { name: "Excellence In Motion", desc: "A purpose-driven youth development organization bridging arts, science, and educational excellence.", tags: ["Web Design", "Nonprofit", "Education"], url: "https://excellenceinmotion.org/", img: "https://amarinunn.tech/images/excellence-in-motion.png" },
 ];
 
 const pillars = [
-  { icon: Clock, stat: "Days, Not Months", body: "Most builds ship in 7–14 days. No agency runaround, no endless back-and-forth." },
+  { icon: Star, stat: "Crafted, Not Templated", body: "Every build is designed specifically for your brand — no generic themes, no cookie-cutter layouts." },
   { icon: KeyRound, stat: "You Own Everything", body: "Code, domains, accounts — no lock-in. It's yours from day one." },
   { icon: ShieldCheck, stat: "Secure by Default", body: "DNS hardened, secrets rotated, HTTPS everywhere. Built right from the start." },
 ];
@@ -68,7 +67,7 @@ const results = [
     icon: Rocket,
     headline: "Launch Ready",
     sub: "Built & Live",
-    body: "From first conversation to live site — fast. No endless revisions, no agency runaround. Just a real product, shipped and working.",
+    body: "From first conversation to live site — done right. No endless revisions, no agency runaround. Just a real product, polished and working.",
     label: "Client — Nashville, TN",
   },
   {
@@ -125,7 +124,7 @@ export default function Technology() {
           className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Your website, booking system, or AI receptionist — built with you, not at you.
-          A real team walks you through every step, from idea to launch, with same-day results.
+          A real team walks you through every step, from idea to launch, with results that last.
         </motion.p>
 
         <motion.div
@@ -154,7 +153,7 @@ export default function Technology() {
           transition={{ delay: 0.8 }}
           className="flex flex-wrap justify-center gap-6 mt-12 text-sm text-gray-500"
         >
-          {["Same-day launch", "A real human, every step", "50+ launches", "You own everything"].map((t) => (
+          {["Crafted to your brand", "A real human, every step", "50+ launches", "You own everything"].map((t) => (
             <span key={t} className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary/60 inline-block" />
               {t}
@@ -223,8 +222,8 @@ export default function Technology() {
               variants={fadeUp}
               className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-colors flex flex-col"
             >
-              <div className="w-full h-28 rounded-lg bg-gradient-to-br from-primary/10 to-purple-500/10 border border-white/5 mb-4 flex items-center justify-center">
-                <span className="text-2xl font-black text-white/20 uppercase tracking-tighter text-center px-2 leading-tight text-sm">{b.name}</span>
+              <div className="w-full h-36 rounded-lg overflow-hidden border border-white/5 mb-4 bg-white/5">
+                <img src={b.img} alt={b.name} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
               </div>
               <h3 className="text-base font-black text-white mb-2" style={{ textTransform: "none" }}>{b.name}</h3>
               <p className="text-gray-500 text-xs leading-relaxed mb-4 flex-1" style={{ textTransform: "none" }}>{b.desc}</p>
@@ -260,7 +259,7 @@ export default function Technology() {
       >
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
-            Speed. Ownership. <span className="text-primary">Peace.</span>
+            Quality. Ownership. <span className="text-primary">Peace.</span>
           </h2>
         </div>
 
