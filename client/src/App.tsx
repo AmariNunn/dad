@@ -20,6 +20,7 @@ import Services from "@/pages/Services";
 import Products from "@/pages/Products";
 import Quote from "@/pages/Quote";
 import Welcome from "@/pages/Welcome";
+import BookedIn from "@/pages/BookedIn";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +35,9 @@ function Router() {
       <Switch location={location} key={location}>
         <Route path="/welcome">
           <Welcome />
+        </Route>
+        <Route path="/bookedin">
+          <BookedIn />
         </Route>
         <Route path="/">
           <PageWrapper><Home /></PageWrapper>
@@ -69,7 +73,7 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 
 function AppShell() {
   const [location] = useLocation();
-  const isWelcome = location === "/welcome";
+  const isWelcome = location === "/welcome" || location === "/bookedin";
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
