@@ -37,7 +37,7 @@ function Router() {
           <Welcome />
         </Route>
         <Route path="/bookedin">
-          <BookedIn />
+          <PageWrapper><BookedIn /></PageWrapper>
         </Route>
         <Route path="/">
           <PageWrapper><Home /></PageWrapper>
@@ -73,7 +73,7 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 
 function AppShell() {
   const [location] = useLocation();
-  const isWelcome = location === "/welcome" || location === "/bookedin";
+  const isWelcome = location === "/welcome";
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
