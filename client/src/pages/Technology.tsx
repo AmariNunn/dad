@@ -89,6 +89,22 @@ const results = [
     label: "Client — Nashville, TN",
     videos: ["/videos/testimonial2.mov"],
   },
+  {
+    icon: CalendarDays,
+    headline: "Booked. Period.",
+    sub: "New Website → Real Bookings",
+    body: "They launched. They got booked. That's it — no ads, no chasing, no guessing. A site built right does the work before you even wake up.",
+    label: "Client — Nashville, TN",
+    videos: ["/videos/bookings.mov"],
+  },
+  {
+    icon: Monitor,
+    headline: "A New Era",
+    sub: "Professional Feel, Built to Last",
+    body: "First impressions are everything. We rebuilt their presence from the ground up — polished, premium, and unmistakably theirs. Now they walk into every room like they own it.",
+    label: "Client — Nashville, TN",
+    videos: ["/videos/professional.mov"],
+  },
 ];
 
 // ─── Video Carousel ───────────────────────────────────────────────────────────
@@ -358,7 +374,7 @@ export default function Technology() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {results.map((r) => (
             <motion.div
               key={r.headline}
