@@ -548,13 +548,6 @@ export default function Welcome() {
         variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
       >
         <div className="max-w-xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
-            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-          >
-            Before You Start —{" "}
-            <span className="text-[#00A3E0]">A Few Things People Ask</span>
-          </h2>
           <div className="space-y-3 mb-16">
             {faqs.map((f) => <FAQItem key={f.q} q={f.q} a={f.a} />)}
           </div>
