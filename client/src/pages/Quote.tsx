@@ -3,12 +3,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { Loader2, Send, Phone, Mail, MapPin } from "lucide-react";
-import { useState } from "react";
 import { insertQuoteRequestSchema } from "@shared/schema";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { useCreateQuote } from "@/hooks/use-quotes";
 import { 
   Form, 
   FormControl, 
@@ -27,8 +26,8 @@ const formSchema = insertQuoteRequestSchema.extend({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function Quote() {
-  const { toast } = useToast();
-  const [isPending, setIsPending] = useState(false);
+  const createQuote = useCreateQuote();
+  const isPending = createQuote.isPending;
   
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -39,41 +38,12 @@ export default function Quote() {
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
-    setIsPending(true);
-    try {
-      const response = await fetch("https://formspree.io/f/xzddddad", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          message: data.message,
-          _subject: `New Quote Request from ${data.name}`
-        })
-      });
-
-      if (response.ok) {
+  const onSubmit = (data: FormValues) => {
+    createQuote.mutate(data, {
+      onSuccess: () => {
         form.reset();
-        toast({
-          title: "Request Sent",
-          description: "We've received your quote request and will get back to you shortly.",
-        });
-      } else {
-        throw new Error("Failed to send request");
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "There was a problem sending your request. Please try again or email us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsPending(false);
-    }
+      },
+    });
   };
 
   return (
