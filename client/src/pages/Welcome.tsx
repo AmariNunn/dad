@@ -502,15 +502,6 @@ export default function Welcome() {
             <strong className="text-white">We'll handle the rest</strong> — design included.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mb-2"
-          >
-            <CTAButton />
-            <p className="text-xs text-gray-500 mt-3">Takes two minutes. No pressure, no cost to begin.</p>
-          </motion.div>
         </div>
       </section>
 
@@ -520,13 +511,8 @@ export default function Welcome() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="text-center mb-3">
-              <span className="inline-block bg-[#00A3E0] text-white text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full">
-                ▶ Watch this first ↓
-              </span>
-            </div>
             <VSLVideo />
           </motion.div>
         </div>
