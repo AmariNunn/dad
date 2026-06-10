@@ -96,7 +96,7 @@ export default function Products() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors cursor-pointer h-full"
+                  className="group relative bg-black/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-colors cursor-pointer h-full flex flex-col"
                 >
                   <div className="aspect-[4/5] overflow-hidden">
                     <img 
@@ -105,7 +105,7 @@ export default function Products() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <item.icon className="w-4 h-4 text-primary" />
                       <span className="text-[10px] uppercase tracking-widest text-primary/80 font-bold">{item.category}</span>
