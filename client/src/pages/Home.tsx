@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt, Play, Pause, VolumeX, Volume2 } from "lucide-react";
 import { ShootingStars } from "@/components/ShootingStars";
+import { ContactCTA } from "@/components/ContactCTA";
 import clientLogos from "@assets/client-logos_1768588141832.webp";
 import vslVideo from "@assets/0610_1781128078224.mp4";
 
@@ -217,6 +218,8 @@ export default function Home() {
           />
         </motion.div>
       </section>
+
+      <ContactCTA />
     </div>
   );
 }

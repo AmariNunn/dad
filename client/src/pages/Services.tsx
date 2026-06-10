@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ServiceCard } from "@/components/ServiceCard";
+import { ContactCTA } from "@/components/ContactCTA";
 import { 
   ShoppingBag, 
   Shirt, 
@@ -60,6 +61,8 @@ export default function Services() {
           ))}
         </div>
       </div>
+
+      <ContactCTA />
     </div>
   );
 }

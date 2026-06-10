@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { ContactCTA } from "@/components/ContactCTA";
 import { ExternalLink, GraduationCap, Building2, PenTool, Coffee, Notebook, Shirt } from "lucide-react";
 
 // Asset imports
@@ -153,6 +154,8 @@ export default function Products() {
             </div>
           </div>
         </section>
+
+        <ContactCTA />
       </div>
     </div>
   );
