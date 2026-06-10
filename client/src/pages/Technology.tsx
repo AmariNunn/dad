@@ -67,9 +67,9 @@ const results = [
   },
   {
     icon: MessageSquare,
-    headline: "One DM",
-    sub: "From Message to Build",
-    body: "It started with a single DM. Within 48 hours we had a plan. The result? A custom digital presence that's been generating real inquiries since day one. This is how we work.",
+    headline: "Real Results",
+    sub: "Booking Page That Converts",
+    body: "We built them a booking page that actually works — their brand, their voice, their offer — just positioned to close. Now they own their pipeline and the leads don't stop.",
     label: "Client — Nashville, TN",
     videos: ["/videos/promo.mp4"],
   },
