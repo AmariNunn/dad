@@ -8,6 +8,7 @@ import vslVideo from "@assets/0610_1781128078224.mp4";
 import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
 import clientLogosImg from "@assets/client-logos_1768588141832-LlhLCFRX_1781129145911.webp";
 import { ShootingStars } from "@/components/ShootingStars";
+import { ForceFieldBackground } from "@/components/ForceFieldBackground";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -477,6 +478,14 @@ const faqs = [
 export default function Welcome() {
   return (
     <div className="relative min-h-screen text-white" style={{ background: "#080d14" }}>
+      <ForceFieldBackground
+        hue={195}
+        saturation={90}
+        spacing={20}
+        forceStrength={15}
+        magnifierRadius={200}
+        className="fixed inset-0"
+      />
       <ShootingStars />
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
