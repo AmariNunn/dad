@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowRight, ChevronRight, GraduationCap, Building2, Notebook, Shirt } from "lucide-react";
 import { ShootingStars } from "@/components/ShootingStars";
 import clientLogos from "@assets/client-logos_1768588141832.webp";
+import vslVideo from "@assets/0610_1781128078224.mp4";
 
 // Asset imports
 import schoolImage1 from "@assets/stock_images/premium_school_spiri_511360d3.jpg";
@@ -106,6 +107,25 @@ export default function Home() {
           </Link>
         </motion.div>
       </section>
+
+      {/* Video Section */}
+      <motion.section
+        className="container mx-auto px-4 pb-16 relative z-10"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+      >
+        <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <video
+            src={vslVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto block"
+          />
+        </div>
+      </motion.section>
 
       {/* Clients Section */}
       <section className="container mx-auto px-4 py-20 border-t border-white/5">
