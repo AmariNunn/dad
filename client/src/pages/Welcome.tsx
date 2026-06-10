@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import vslVideo from "@assets/0610_1781128078224.mp4";
 import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
+import clientLogosImg from "@assets/client-logos_1768588141832-LlhLCFRX_1781129145911.webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -518,6 +519,26 @@ export default function Welcome() {
         </div>
       </section>
 
+      {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
+      <motion.section
+        className="px-4 py-10 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xl md:text-2xl font-black text-white mb-8 uppercase tracking-wide" style={{ fontFamily: "var(--font-display)" }}>
+            Trusted by the brands that built Nashville
+          </p>
+          <img
+            src={clientLogosImg}
+            alt="Client logos — Nashville SC, Metro Nashville Public Schools, National Museum of African American Music, and more"
+            className="w-full max-w-2xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
+          />
+          <p className="text-sm text-gray-500 italic mt-6">
+            From city government to local favorites — the names you know already carry our work.
+          </p>
+        </div>
+      </motion.section>
+
       {/* ── FORM ──────────────────────────────────────────────────────────── */}
       <section id="project-form" className="px-4 py-12">
         <div className="max-w-lg mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 shadow-[0_0_60px_rgba(0,163,224,0.1)]">
@@ -535,28 +556,6 @@ export default function Welcome() {
           <ProjectForm />
         </div>
       </section>
-
-      {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
-      <motion.section
-        className="px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest text-gray-500 mb-8 font-bold">
-            Trusted by the brands that built Nashville
-          </p>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-8">
-            {clients.map((c) => (
-              <span key={c} className="text-sm text-gray-400 font-medium hover:text-white transition-colors">
-                {c}
-              </span>
-            ))}
-          </div>
-          <p className="text-sm text-gray-500 italic">
-            From city government to local favorites — the names you know already carry our work.
-          </p>
-        </div>
-      </motion.section>
 
       {/* ── PICTURE IT DONE ───────────────────────────────────────────────── */}
       <motion.section
