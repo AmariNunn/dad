@@ -622,6 +622,40 @@ export default function Welcome() {
         </div>
       </motion.section>
 
+      {/* ── THE SOLUTION ──────────────────────────────────────────────────── */}
+      <motion.section
+        className="px-4 py-16 border-t border-white/5"
+        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+      >
+        <div className="max-w-2xl mx-auto">
+          <h2
+            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
+            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+          >
+            One Trusted Partner for <span className="text-[#00A3E0]">Everything You Need</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {solutions.map((s) => (
+              <div
+                key={s.title}
+                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-[#00A3E0]/40 transition-colors"
+              >
+                <s.icon className="w-6 h-6 text-[#00A3E0] mb-3" />
+                <h3
+                  className="text-base font-black text-white mb-2"
+                  style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}
+                >
+                  {s.title}
+                </h3>
+                <p className="text-base text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── PICTURE IT DONE ───────────────────────────────────────────────── */}
       <motion.section
         className="px-4 py-16 border-t border-white/5"
@@ -658,40 +692,6 @@ export default function Welcome() {
             <p>No five vendors. No five logins. No rep learning your brand for the first time on a phone call.</p>
             <p>One partner who already gets it. One process. One person who knows your name and your deadline.</p>
             <p className="text-white font-semibold">We've done this long enough to make it feel easy — because the simplest part of your week should be the part you hand to us.</p>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── THE SOLUTION ──────────────────────────────────────────────────── */}
-      <motion.section
-        className="px-4 py-16 border-t border-white/5"
-        variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2
-            className="text-2xl md:text-3xl font-black text-white mb-10 text-center"
-            style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-          >
-            One Trusted Partner for <span className="text-[#00A3E0]">Everything You Need</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {solutions.map((s) => (
-              <div
-                key={s.title}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-[#00A3E0]/40 transition-colors"
-              >
-                <s.icon className="w-6 h-6 text-[#00A3E0] mb-3" />
-                <h3
-                  className="text-base font-black text-white mb-2"
-                  style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}
-                >
-                  {s.title}
-                </h3>
-                <p className="text-base text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-                  {s.body}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </motion.section>
