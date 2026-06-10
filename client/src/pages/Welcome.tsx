@@ -527,6 +527,24 @@ export default function Welcome() {
         </div>
       </section>
 
+      {/* ── FORM ──────────────────────────────────────────────────────────── */}
+      <section id="project-form" className="px-4 py-12">
+        <div className="max-w-lg mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 shadow-[0_0_60px_rgba(0,163,224,0.1)]">
+          <div className="text-center mb-8">
+            <h2
+              className="text-2xl font-black text-white mb-2"
+              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
+            >
+              Start Your Project
+            </h2>
+            <p className="text-sm text-gray-400" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+              Three quick questions — most people finish in under two minutes. We'll take the design from here.
+            </p>
+          </div>
+          <ProjectForm />
+        </div>
+      </section>
+
       {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
       <motion.section
         className="px-4 py-10 border-t border-white/5"
@@ -546,24 +564,6 @@ export default function Welcome() {
           </p>
         </div>
       </motion.section>
-
-      {/* ── FORM ──────────────────────────────────────────────────────────── */}
-      <section id="project-form" className="px-4 py-12">
-        <div className="max-w-lg mx-auto bg-white/5 border border-white/10 rounded-2xl p-8 shadow-[0_0_60px_rgba(0,163,224,0.1)]">
-          <div className="text-center mb-8">
-            <h2
-              className="text-2xl font-black text-white mb-2"
-              style={{ fontFamily: "var(--font-display)", textTransform: "none" }}
-            >
-              Start Your Project
-            </h2>
-            <p className="text-sm text-gray-400" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-              Three quick questions — most people finish in under two minutes. We'll take the design from here.
-            </p>
-          </div>
-          <ProjectForm />
-        </div>
-      </section>
 
       {/* ── PICTURE IT DONE ───────────────────────────────────────────────── */}
       <motion.section
