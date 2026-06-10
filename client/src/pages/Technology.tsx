@@ -355,28 +355,31 @@ export default function Technology() {
             src="/videos/promo.mp4"
             controls
             playsInline
+            muted
+            preload="auto"
             className="w-full h-auto block"
           />
         </div>
 
-        {/* Two client testimonials */}
+        {/* 4 client testimonials in 2x2 grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
-            <video
-              src="/videos/testimonial1.mov"
-              controls
-              playsInline
-              className="w-full h-auto block"
-            />
-          </div>
-          <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
-            <video
-              src="/videos/testimonial2.mov"
-              controls
-              playsInline
-              className="w-full h-auto block"
-            />
-          </div>
+          {[
+            "/videos/testimonial1.mov",
+            "/videos/testimonial2.mov",
+            "/videos/testimonial3.mp4",
+            "/videos/testimonial4.mp4",
+          ].map((src) => (
+            <div key={src} className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-primary/5">
+              <video
+                src={src}
+                controls
+                playsInline
+                muted
+                preload="auto"
+                className="w-full h-auto block"
+              />
+            </div>
+          ))}
         </div>
       </motion.section>
 
