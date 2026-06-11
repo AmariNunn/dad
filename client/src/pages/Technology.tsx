@@ -173,7 +173,7 @@ export default function Technology() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >Your Website, App, or AI receptionist — built with you, not at you. A real team walks you through every step, from idea to launch, with results that last.</motion.p>
+        >Your Website, App, or AI receptionist — built with you. A real team walks you through every step, from idea to launch, with results that last.</motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
