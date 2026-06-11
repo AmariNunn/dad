@@ -239,7 +239,7 @@ export default function Technology() {
                 <img src={b.img} alt={b.name} className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
               </div>
               <h3 className="text-base font-black text-white mb-2" style={{ textTransform: "none" }}>{b.name}</h3>
-              <p className="text-gray-500 text-xs leading-relaxed mb-4 flex-1" style={{ textTransform: "none" }}>{b.desc}</p>
+              <p className="mb-4 flex-1 text-[18px] text-[color:var(--tw-ring-offset-color)]" style={{ textTransform: "none" }}>{b.desc}</p>
               <div className="flex flex-wrap gap-1.5 mb-4">
                 {b.tags.map((tag) => (
                   <span key={tag} className="text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary/80 border border-primary/20 rounded-full px-2 py-0.5">
