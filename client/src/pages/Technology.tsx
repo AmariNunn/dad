@@ -202,7 +202,7 @@ export default function Technology() {
               </div>
               <span className="text-[10px] font-black tracking-[0.2em] text-primary/70 uppercase mb-2 block">{lane.tag}</span>
               <h3 className="text-xl font-black text-white mb-3" style={{ textTransform: "none" }}>{lane.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-sm mb-6" style={{ textTransform: "none" }}>{lane.body}</p>
+              <p className="mb-6 text-[20px] text-[color:var(--tw-ring-offset-color)] font-normal" style={{ textTransform: "none" }}>{lane.body}</p>
               <Link
                 href="/quote"
                 className="text-primary text-sm font-bold uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all"
