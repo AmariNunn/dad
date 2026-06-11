@@ -337,7 +337,7 @@ export default function Technology() {
                     <p className="text-xs font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
                   </div>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
+                <p className="text-gray-400 mb-4 flex-1 text-[21px]" style={{ textTransform: "none" }}>{r.body}</p>
                 <p className="text-xs text-gray-600 italic mb-4">— {r.label}</p>
                 <Link
                   href="/quote"
