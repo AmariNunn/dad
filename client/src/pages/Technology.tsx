@@ -338,7 +338,7 @@ export default function Technology() {
                   </div>
                 </div>
                 <p className="text-gray-400 mb-4 flex-1 text-[21px]" style={{ textTransform: "none" }}>{r.body}</p>
-                <p className="text-xs text-gray-600 italic mb-4">— {r.label}</p>
+                <p className="italic mb-4 text-[18px] font-bold text-[color:var(--tw-ring-offset-color)]">— {r.label}</p>
                 <Link
                   href="/quote"
                   className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
