@@ -77,7 +77,7 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 
 function AppShell() {
   const [location] = useLocation();
-  const isWelcome = location === "/welcome";
+  const isWelcome = location.startsWith("/welcome") || location.startsWith("/bookedin");
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
