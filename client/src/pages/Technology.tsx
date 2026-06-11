@@ -143,7 +143,6 @@ function VideoCarousel({ srcs }: { srcs: string[] }) {
 export default function Technology() {
   return (
     <div className="relative pt-20 min-h-screen text-white">
-
       {/* ── HERO ──────────────────────────────────────────────────────────────── */}
       <section className="container mx-auto px-4 py-24 text-center relative z-10">
         <motion.div
@@ -174,10 +173,7 @@ export default function Technology() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          Your website, booking system, or AI receptionist — built with you, not at you.
-          A real team walks you through every step, from idea to launch, with results that last.
-        </motion.p>
+        >Your Website, App, or AI receptionist — built with you, not at you. A real team walks you through every step, from idea to launch, with results that last.</motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -213,7 +209,6 @@ export default function Technology() {
           ))}
         </motion.div>
       </section>
-
       {/* ── THREE LANES ───────────────────────────────────────────────────────── */}
       <motion.section
         className="container mx-auto px-4 py-16 border-t border-white/5"
@@ -251,7 +246,6 @@ export default function Technology() {
           ))}
         </div>
       </motion.section>
-
       {/* ── REAL BUILDS ───────────────────────────────────────────────────────── */}
       <motion.section
         id="builds"
@@ -303,7 +297,6 @@ export default function Technology() {
           <a href="#contact" className="text-primary hover:underline">Start a build →</a>
         </p>
       </motion.section>
-
       {/* ── WHY IT WORKS ──────────────────────────────────────────────────────── */}
       <motion.section
         className="container mx-auto px-4 py-16 border-t border-white/5"
@@ -327,7 +320,6 @@ export default function Technology() {
           ))}
         </div>
       </motion.section>
-
       {/* ── TECH STACK MARQUEE ────────────────────────────────────────────────── */}
       <section className="py-10 border-t border-white/5 overflow-hidden">
         <div className="relative">
@@ -343,7 +335,6 @@ export default function Technology() {
           </div>
         </div>
       </section>
-
       {/* ── RESULTS + VIDEO TESTIMONIALS (combined) ───────────────────────────── */}
       <motion.section
         className="container mx-auto px-4 py-16 border-t border-white/5"
@@ -392,12 +383,10 @@ export default function Technology() {
           ))}
         </div>
       </motion.section>
-
       {/* ── CONTACT CTA ───────────────────────────────────────────────────────── */}
       <div id="contact">
         <ContactCTA />
       </div>
-
     </div>
   );
 }
