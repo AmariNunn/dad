@@ -24,41 +24,12 @@ import Welcome from "@/pages/Welcome";
 import BookedIn from "@/pages/BookedIn";
 import NotFound from "@/pages/not-found";
 
-function Router() {
+function ScrollToTop() {
   const [location] = useLocation();
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [location]);
-
-  return (
-    <AnimatePresence mode="wait">
-      <Switch location={location} key={location}>
-        <Route path="/welcome">
-          <Welcome />
-        </Route>
-        <Route path="/bookedin">
-          <PageWrapper><BookedIn /></PageWrapper>
-        </Route>
-        <Route path="/">
-          <PageWrapper><Home /></PageWrapper>
-        </Route>
-        <Route path="/services">
-          <PageWrapper><Services /></PageWrapper>
-        </Route>
-        <Route path="/products">
-          <PageWrapper><Products /></PageWrapper>
-        </Route>
-        <Route path="/technology">
-          <PageWrapper><Technology /></PageWrapper>
-        </Route>
-        <Route path="/quote">
-          <PageWrapper><Quote /></PageWrapper>
-        </Route>
-        <Route component={NotFound} />
-      </Switch>
-    </AnimatePresence>
-  );
+  return null;
 }
 
 function PageWrapper({ children }: { children: React.ReactNode }) {
@@ -77,43 +48,55 @@ function PageWrapper({ children }: { children: React.ReactNode }) {
 
 function AppShell() {
   const [location] = useLocation();
-  const isWelcome = location.startsWith("/welcome") || location.startsWith("/bookedin");
 
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-hidden">
-      {!isWelcome && (
-        <>
-          <ForceFieldBackground
-            hue={195}
-            saturation={90}
-            spacing={20}
-            forceStrength={15}
-            magnifierRadius={200}
-            className="fixed inset-0"
-          />
-          <ShootingStars />
-        </>
-      )}
+      <ForceFieldBackground
+        hue={195}
+        saturation={90}
+        spacing={20}
+        forceStrength={15}
+        magnifierRadius={200}
+        className="fixed inset-0"
+      />
+      <ShootingStars />
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        {!isWelcome && <Navigation />}
+        <Navigation />
         <main className="flex-grow">
-          <Router />
+          <AnimatePresence mode="wait">
+            <Switch location={location} key={location}>
+              <Route path="/">
+                <PageWrapper><Home /></PageWrapper>
+              </Route>
+              <Route path="/services">
+                <PageWrapper><Services /></PageWrapper>
+              </Route>
+              <Route path="/products">
+                <PageWrapper><Products /></PageWrapper>
+              </Route>
+              <Route path="/technology">
+                <PageWrapper><Technology /></PageWrapper>
+              </Route>
+              <Route path="/quote">
+                <PageWrapper><Quote /></PageWrapper>
+              </Route>
+              <Route component={NotFound} />
+            </Switch>
+          </AnimatePresence>
         </main>
-        {!isWelcome && (
-          <footer className="border-t border-primary/20 bg-primary/10 backdrop-blur-md py-12 mt-auto">
-            <div className="container mx-auto px-4 text-center">
-              <img
-                src={logoWebp}
-                alt="TRI Creative Group Logo"
-                className="h-12 mx-auto mb-6 opacity-80 hover:opacity-100 transition-opacity"
-              />
-              <p className="text-sm text-primary/60">
-                &copy; {new Date().getFullYear()} TRI Creative Group. All rights reserved.
-              </p>
-            </div>
-          </footer>
-        )}
+        <footer className="border-t border-primary/20 bg-primary/10 backdrop-blur-md py-12 mt-auto">
+          <div className="container mx-auto px-4 text-center">
+            <img
+              src={logoWebp}
+              alt="TRI Creative Group Logo"
+              className="h-12 mx-auto mb-6 opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <p className="text-sm text-primary/60">
+              &copy; {new Date().getFullYear()} TRI Creative Group. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </div>
     </div>
   );
@@ -123,7 +106,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <AppShell />
+        <ScrollToTop />
+        <Switch>
+          <Route path="/welcome">
+            <Welcome />
+          </Route>
+          <Route path="/bookedin">
+            <BookedIn />
+          </Route>
+          <Route>
+            <AppShell />
+          </Route>
+        </Switch>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
