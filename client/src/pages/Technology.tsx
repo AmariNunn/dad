@@ -327,23 +327,23 @@ export default function Technology() {
               <VideoCarousel srcs={r.videos} />
 
               {/* Stat + copy below */}
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                    <r.icon className="w-4 h-4 text-primary" />
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                    <r.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
-                    <p className="text-[10px] font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
+                    <p className="text-2xl font-black text-white leading-none" style={{ textTransform: "none" }}>{r.headline}</p>
+                    <p className="text-xs font-bold text-primary/70 uppercase tracking-widest mt-1">{r.sub}</p>
                   </div>
                 </div>
-                <p className="text-gray-400 text-xs leading-relaxed mb-3 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
-                <p className="text-[10px] text-gray-600 italic mb-3">— {r.label}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1" style={{ textTransform: "none" }}>{r.body}</p>
+                <p className="text-xs text-gray-600 italic mb-4">— {r.label}</p>
                 <Link
                   href="/quote"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
+                  className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-widest text-primary hover:gap-2.5 transition-all"
                 >
-                  Book a Free Call <ArrowRight className="w-3 h-3" />
+                  Book a Free Call <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </motion.div>
