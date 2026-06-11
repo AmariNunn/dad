@@ -532,23 +532,62 @@ export default function Welcome() {
           className="px-4 py-16 border-t border-white/5"
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
         >
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-black text-white mb-10 text-center" style={{ fontFamily: "var(--font-display)", textTransform: "none" }}>
               They Didn't Just Get Products.{" "}
               <span className="text-[#00A3E0]">They Got Their Time Back.</span>
             </h2>
-            <div className="space-y-4 mb-10">
-              {testimonials.map((t) => (
-                <div key={t.quote} className="bg-white/5 border border-white/10 rounded-xl p-6">
-                  <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>"{t.quote}"</p>
-                  <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{t.body}</p>
-                  <p className="text-sm text-gray-500">— {t.author}, {t.title}, {t.org}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 items-start">
+              {/* Left — testimonial cards */}
+              <div>
+                <div className="space-y-4 mb-10">
+                  {testimonials.map((t) => (
+                    <div key={t.quote} className="bg-white/5 border border-white/10 rounded-xl p-6">
+                      <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>"{t.quote}"</p>
+                      <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{t.body}</p>
+                      <p className="text-sm text-gray-500">— {t.author}, {t.title}, {t.org}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <p className="text-base text-gray-400 italic" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
+                  The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
+                </p>
+              </div>
+
+              {/* Right — two product videos */}
+              <div className="flex flex-col gap-6">
+                {/* Top video — Apparel Print */}
+                <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                  <video
+                    src="/videos/bookings.mov"
+                    className="w-full aspect-[9/16] object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="px-4 py-3">
+                    <p className="text-xs font-bold text-[#00A3E0] uppercase tracking-widest">Apparel Print</p>
+                    <p className="text-sm text-gray-400 mt-0.5" style={{ textTransform: "none" }}>Screen print · Embroidery · Vinyl</p>
+                  </div>
+                </div>
+                {/* Bottom video — Custom Solutions */}
+                <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+                  <video
+                    src="/videos/professional.mov"
+                    className="w-full aspect-[9/16] object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="px-4 py-3">
+                    <p className="text-xs font-bold text-[#00A3E0] uppercase tracking-widest">Custom Solutions</p>
+                    <p className="text-sm text-gray-400 mt-0.5" style={{ textTransform: "none" }}>Promo · Merch · Executive gifts</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-center text-base text-gray-400 italic" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-              The story's always the same: less juggling, better product, and a brand that keeps working long after the event ends.
-            </p>
           </div>
         </motion.section>
 
