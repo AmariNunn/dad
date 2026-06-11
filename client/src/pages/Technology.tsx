@@ -175,39 +175,6 @@ export default function Technology() {
           className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >Your Website, App, or AI receptionist — built with you. A real team walks you through every step, from idea to launch, with results that last.</motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <a
-            href="#contact"
-            className="group relative px-8 py-4 bg-primary text-black font-bold tracking-widest uppercase rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 w-full sm:w-auto flex items-center justify-center gap-2"
-          >
-            Start Today <ArrowRight size={18} />
-          </a>
-          <a
-            href="#builds"
-            className="group px-8 py-4 bg-transparent border border-white/20 text-white font-bold tracking-widest uppercase rounded-lg hover:bg-white/5 hover:border-primary/50 hover:text-primary transition-all duration-300 w-full sm:w-auto flex items-center justify-center gap-2"
-          >
-            See Real Builds <ChevronRight size={18} />
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-6 mt-12 text-sm text-gray-500"
-        >
-          {["Crafted to your brand", "A real human, every step", "50+ launches", "You own everything"].map((t) => (
-            <span key={t} className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/60 inline-block" />
-              {t}
-            </span>
-          ))}
-        </motion.div>
       </section>
       {/* ── THREE LANES ───────────────────────────────────────────────────────── */}
       <motion.section
