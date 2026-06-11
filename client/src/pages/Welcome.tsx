@@ -8,6 +8,8 @@ import {
 import vslVideo from "@assets/0610_1781128078224.mp4";
 import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
 import clientLogosImg from "@assets/client-logos_1768588141832-LlhLCFRX_1781129145911.webp";
+import hatGif from "@/assets/images/hat.gif";
+import handSanitizerGif from "@/assets/images/hand-sanitizer.gif";
 import { ShootingStars } from "@/components/ShootingStars";
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
 
@@ -554,33 +556,19 @@ export default function Welcome() {
                 </p>
               </div>
 
-              {/* Right — two product videos */}
+              {/* Right — two product GIFs */}
               <div className="flex flex-col gap-6">
-                {/* Top video — Apparel Print */}
+                {/* Top — Apparel Print */}
                 <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                  <video
-                    src="/videos/bookings.mov"
-                    className="w-full aspect-[9/16] object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+                  <img src={hatGif} alt="Apparel Print" className="w-full object-cover" />
                   <div className="px-4 py-3">
                     <p className="text-xs font-bold text-[#00A3E0] uppercase tracking-widest">Apparel Print</p>
                     <p className="text-sm text-gray-400 mt-0.5" style={{ textTransform: "none" }}>Screen print · Embroidery · Vinyl</p>
                   </div>
                 </div>
-                {/* Bottom video — Custom Solutions */}
+                {/* Bottom — Custom Solutions */}
                 <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-                  <video
-                    src="/videos/professional.mov"
-                    className="w-full aspect-[9/16] object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+                  <img src={handSanitizerGif} alt="Custom Solutions" className="w-full object-cover" />
                   <div className="px-4 py-3">
                     <p className="text-xs font-bold text-[#00A3E0] uppercase tracking-widest">Custom Solutions</p>
                     <p className="text-sm text-gray-400 mt-0.5" style={{ textTransform: "none" }}>Promo · Merch · Executive gifts</p>
