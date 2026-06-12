@@ -519,11 +519,11 @@ export default function Welcome() {
             <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
             <div className="flex gap-10 animate-[marquee_30s_linear_infinite] [animation-direction:reverse] whitespace-nowrap w-max items-center">
               {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-                <div key={i} className="flex-shrink-0 w-36 h-36 flex items-center justify-center">
+                <div key={i} className="flex-shrink-0 w-44 h-20 flex items-center justify-center">
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-36 h-36 object-contain"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               ))}
