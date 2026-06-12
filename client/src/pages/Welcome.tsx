@@ -557,6 +557,53 @@ export default function Welcome() {
           </div>
         </section>
 
+        {/* ── HOW IT WORKS ──────────────────────────────────────────────────── */}
+        <motion.section
+          className="px-4 py-16 border-t border-white/5"
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        >
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-12 text-center" style={{ fontFamily: "var(--font-display)", textTransform: "none" }}>
+              How It Works —{" "}
+              <span className="text-[#00A3E0]">From Idea to Delivered</span>
+            </h2>
+            <div className="space-y-6">
+              {[
+                {
+                  n: "1",
+                  title: "Tell Us What You Need",
+                  body: "Share your idea, event, or budget — even if it's just \"we need something for homecoming.\" That's enough to get started.",
+                },
+                {
+                  n: "2",
+                  title: "We Build Your Presentation",
+                  body: "We come back with product samples, mockups with your logo, and clear pricing. You see exactly what you're getting before you spend a dollar.",
+                },
+                {
+                  n: "3",
+                  title: "You Approve",
+                  body: "Love it? Give us the green light. Want changes? We revise until it's right.",
+                },
+                {
+                  n: "4",
+                  title: "We Produce & Deliver",
+                  body: "We handle production, quality checks, and shipping straight to your door. That simple.",
+                },
+              ].map((step) => (
+                <div key={step.n} className="flex gap-5 items-start bg-white/5 border border-white/10 rounded-xl p-6 hover:border-[#00A3E0]/30 transition-colors">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00A3E0]/15 border border-[#00A3E0]/40 flex items-center justify-center">
+                    <span className="text-[#00A3E0] font-black text-base" style={{ fontFamily: "var(--font-display)" }}>{step.n}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-white mb-1" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>{step.title}</h3>
+                    <p className="text-base text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{step.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
         {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
         <motion.section
           className="px-4 py-10 border-t border-white/5"
