@@ -514,17 +514,26 @@ export default function Welcome() {
         </section>
 
         {/* ── PRODUCT MARQUEE ───────────────────────────────────────────────── */}
-        <section className="py-4 overflow-hidden bg-white">
-          <div className="flex gap-10 animate-[marquee_30s_linear_infinite] [animation-direction:reverse] whitespace-nowrap w-max items-center">
-            {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-              <div key={i} className="flex-shrink-0 w-36 h-36 flex items-center justify-center">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-36 h-36 object-contain"
-                />
-              </div>
-            ))}
+        <section className="bg-white border-y border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.10)]">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-gray-400 pt-5 pb-1">
+            Trusted By
+          </p>
+          <div className="relative overflow-hidden py-4">
+            {/* Left fade */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+            {/* Right fade */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+            <div className="flex gap-10 animate-[marquee_30s_linear_infinite] [animation-direction:reverse] whitespace-nowrap w-max items-center">
+              {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+                <div key={i} className="flex-shrink-0 w-36 h-36 flex items-center justify-center">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-36 h-36 object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
