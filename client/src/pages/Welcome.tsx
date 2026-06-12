@@ -220,39 +220,21 @@ const STEPS = [
   },
 ];
 
-interface FormData {
-  type: string;
-  timeline: string;
-  budget: string;
-  name: string;
-  business: string;
-  email: string;
-  phone: string;
-  notes: string;
-}
-
-async function submitProject(formData: FormData): Promise<void> {
-  const res = await fetch("https://formspree.io/f/mkoavjwv", {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(formData),
-  });
-  if (!res.ok) throw new Error("Submission failed");
-}
+const FORMSPREE = "https://formspree.io/f/mkoavjwv";
 
 function ProjectForm() {
   const [, setLocation] = useLocation();
+  // step 0 = contact info, steps 1-3 = option selection
   const [step, setStep] = useState(0);
-  const [selections, setSelections] = useState<Record<string, string>>({});
   const [contact, setContact] = useState({ name: "", business: "", email: "", phone: "", notes: "" });
+  const [selections, setSelections] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
 
-  const totalSteps = STEPS.length + 1;
+  const totalSteps = STEPS.length + 1; // 4
 
-  const selectOption = (stepId: string, label: string) => {
+  const selectOption = (stepId: string, label: string) =>
     setSelections((prev) => ({ ...prev, [stepId]: label }));
-  };
 
   const validateContact = () => {
     const errs: Record<string, string> = {};
@@ -264,21 +246,43 @@ function ProjectForm() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Step 0 Next: validate, fire partial lead to Formspree, advance
+  const handleContactNext = async () => {
     if (!validateContact()) return;
     setSubmitting(true);
-    await submitProject({
-      type: selections.type,
-      timeline: selections.timeline,
-      budget: selections.budget,
-      ...contact,
-    });
+    try {
+      await fetch(FORMSPREE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...contact, _subject: "New lead (contact captured)", status: "Contact captured — project details pending" }),
+      });
+    } catch (_) {}
+    setSubmitting(false);
+    setStep(1);
+  };
+
+  // Last option step Next: send full submission and redirect
+  const handleFinalSubmit = async () => {
+    setSubmitting(true);
+    try {
+      await fetch(FORMSPREE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...contact,
+          type: selections.type,
+          timeline: selections.timeline,
+          budget: selections.budget,
+          _subject: "New project request (complete)",
+          status: "Complete",
+        }),
+      });
+    } catch (_) {}
     setSubmitting(false);
     setLocation("/bookedin");
   };
 
-  const currentOptionStep = STEPS[step];
+  const currentOptionStep = step > 0 ? STEPS[step - 1] : null;
 
   return (
     <div>
@@ -295,7 +299,74 @@ function ProjectForm() {
       </div>
 
       <AnimatePresence mode="wait">
-        {step < STEPS.length ? (
+        {step === 0 ? (
+          /* ── STEP 1: Contact info (fires partial lead on Next) ── */
+          <motion.div
+            key="contact-step"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.25 }}
+          >
+            <p className="text-sm uppercase tracking-widest text-[#00A3E0] mb-3 font-bold">
+              Step 1 of {totalSteps}
+            </p>
+            <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
+              First, how do we reach you?
+            </h3>
+            <p className="text-base text-gray-400 mb-6">No cost and no commitment to begin.</p>
+            <div className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your name *"
+                  value={contact.name}
+                  onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${errors.name ? "border-red-500" : "border-white/10"}`}
+                />
+                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Business / organization *"
+                  value={contact.business}
+                  onChange={(e) => setContact((c) => ({ ...c, business: e.target.value }))}
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${errors.business ? "border-red-500" : "border-white/10"}`}
+                />
+                {errors.business && <p className="text-red-400 text-sm mt-1">{errors.business}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Email address *"
+                  value={contact.email}
+                  onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
+                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${errors.email ? "border-red-500" : "border-white/10"}`}
+                />
+                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="Best phone number (optional)"
+                  value={contact.phone}
+                  onChange={(e) => setContact((c) => ({ ...c, phone: e.target.value }))}
+                  className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors"
+                />
+              </div>
+              <button
+                onClick={handleContactNext}
+                disabled={submitting}
+                className="w-full flex items-center justify-center gap-2 py-4 rounded-xl font-black text-base uppercase tracking-widest transition-all duration-200 bg-[#00A3E0] hover:bg-[#0082B3] text-white shadow-[0_0_20px_rgba(0,163,224,0.3)] disabled:opacity-70"
+              >
+                {submitting ? "Saving…" : <>Next <ArrowRight className="w-4 h-4" /></>}
+              </button>
+              <p className="text-center text-sm text-gray-500">No cost and no commitment to begin. We'll reply within one business day.</p>
+            </div>
+          </motion.div>
+        ) : (
+          /* ── STEPS 2-4: Option selection ── */
           <motion.div
             key={`step-${step}`}
             initial={{ opacity: 0, x: 30 }}
@@ -307,16 +378,16 @@ function ProjectForm() {
               Step {step + 1} of {totalSteps}
             </p>
             <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
-              {currentOptionStep.question}
+              {currentOptionStep!.question}
             </h3>
-            <p className="text-base text-gray-400 mb-6">{currentOptionStep.hint}</p>
+            <p className="text-base text-gray-400 mb-6">{currentOptionStep!.hint}</p>
             <div className="space-y-3">
-              {currentOptionStep.options.map((opt) => {
-                const selected = selections[currentOptionStep.id] === opt.label;
+              {currentOptionStep!.options.map((opt) => {
+                const selected = selections[currentOptionStep!.id] === opt.label;
                 return (
                   <button
                     key={opt.label}
-                    onClick={() => selectOption(currentOptionStep.id, opt.label)}
+                    onClick={() => selectOption(currentOptionStep!.id, opt.label)}
                     className={`w-full text-left flex items-center gap-4 px-5 py-5 rounded-xl border transition-all duration-200 ${
                       selected
                         ? "border-[#00A3E0] bg-[#00A3E0]/15 text-white"
@@ -331,116 +402,39 @@ function ProjectForm() {
               })}
             </div>
 
-            {/* Next / Back */}
             <div className="flex gap-3 mt-6">
-              {step > 0 && (
+              <button
+                onClick={() => setStep((s) => s - 1)}
+                className="flex items-center gap-2 px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-white/30 font-semibold text-base transition-all duration-200"
+              >
+                <ArrowLeft className="w-4 h-4" /> Back
+              </button>
+              {step < STEPS.length ? (
                 <button
-                  onClick={() => setStep((s) => s - 1)}
-                  className="flex items-center gap-2 px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-white/30 font-semibold text-base transition-all duration-200"
+                  onClick={() => setStep((s) => s + 1)}
+                  disabled={!selections[currentOptionStep!.id]}
+                  className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-xl font-black text-base uppercase tracking-widest transition-all duration-200 ${
+                    selections[currentOptionStep!.id]
+                      ? "bg-[#00A3E0] hover:bg-[#0082B3] text-white shadow-[0_0_20px_rgba(0,163,224,0.3)]"
+                      : "bg-white/8 text-gray-500 cursor-not-allowed"
+                  }`}
                 >
-                  <ArrowLeft className="w-4 h-4" /> Back
+                  Next <ArrowRight className="w-4 h-4" />
+                </button>
+              ) : (
+                <button
+                  onClick={handleFinalSubmit}
+                  disabled={!selections[currentOptionStep!.id] || submitting}
+                  className={`flex-1 flex items-center justify-center gap-2 py-5 rounded-xl font-black text-base uppercase tracking-widest transition-all duration-200 ${
+                    selections[currentOptionStep!.id] && !submitting
+                      ? "bg-[#00A3E0] hover:bg-[#0082B3] text-white shadow-[0_0_20px_rgba(0,163,224,0.3)]"
+                      : "bg-white/8 text-gray-500 cursor-not-allowed"
+                  }`}
+                >
+                  {submitting ? "Sending…" : <>Start My Project <ArrowRight className="w-5 h-5" /></>}
                 </button>
               )}
-              <button
-                onClick={() => setStep((s) => s + 1)}
-                disabled={!selections[currentOptionStep.id]}
-                className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-xl font-black text-base uppercase tracking-widest transition-all duration-200 ${
-                  selections[currentOptionStep.id]
-                    ? "bg-[#00A3E0] hover:bg-[#0082B3] text-white shadow-[0_0_20px_rgba(0,163,224,0.3)]"
-                    : "bg-white/8 text-gray-500 cursor-not-allowed"
-                }`}
-              >
-                Next <ArrowRight className="w-4 h-4" />
-              </button>
             </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="contact-step"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -30 }}
-            transition={{ duration: 0.25 }}
-          >
-            <p className="text-sm uppercase tracking-widest text-[#00A3E0] mb-3 font-bold">
-              Step {totalSteps} of {totalSteps}
-            </p>
-            <h3 className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)" }}>
-              Last step — how do we reach you?
-            </h3>
-            <p className="text-base text-gray-400 mb-6">No cost and no commitment to begin.</p>
-            <form onSubmit={handleSubmit} noValidate className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Your name *"
-                  value={contact.name}
-                  onChange={(e) => setContact((c) => ({ ...c, name: e.target.value }))}
-                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
-                    errors.name ? "border-red-500" : "border-white/10"
-                  }`}
-                />
-                {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Business / organization *"
-                  value={contact.business}
-                  onChange={(e) => setContact((c) => ({ ...c, business: e.target.value }))}
-                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
-                    errors.business ? "border-red-500" : "border-white/10"
-                  }`}
-                />
-                {errors.business && <p className="text-red-400 text-sm mt-1">{errors.business}</p>}
-              </div>
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email address *"
-                  value={contact.email}
-                  onChange={(e) => setContact((c) => ({ ...c, email: e.target.value }))}
-                  className={`w-full px-4 py-4 rounded-xl bg-white/5 border text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors ${
-                    errors.email ? "border-red-500" : "border-white/10"
-                  }`}
-                />
-                {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-              </div>
-              <div>
-                <input
-                  type="tel"
-                  placeholder="Best phone number (optional)"
-                  value={contact.phone}
-                  onChange={(e) => setContact((c) => ({ ...c, phone: e.target.value }))}
-                  className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Anything else? A logo, an event date, a wild idea… (optional)"
-                  value={contact.notes}
-                  onChange={(e) => setContact((c) => ({ ...c, notes: e.target.value }))}
-                  className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 text-base focus:outline-none focus:border-[#00A3E0] transition-colors"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full py-5 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70"
-              >
-                {submitting ? "Sending…" : <>Start My Project <ArrowRight className="w-5 h-5" /></>}
-              </button>
-              <p className="text-center text-sm text-gray-500">No cost and no commitment to begin. We'll reply within one business day.</p>
-            </form>
-
-            {/* Back button */}
-            <button
-              onClick={() => setStep((s) => s - 1)}
-              className="mt-4 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" /> Back
-            </button>
           </motion.div>
         )}
       </AnimatePresence>
