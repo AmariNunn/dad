@@ -312,11 +312,10 @@ function ProjectForm() {
           />
         ))}
       </div>
-
       <AnimatePresence mode="wait">
         {step === 0 ? (
           /* ── STEP 1: Contact info (fires partial lead on Next) ── */
-          <motion.div
+          (<motion.div
             key="contact-step"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -379,10 +378,10 @@ function ProjectForm() {
               </button>
               <p className="text-center text-sm text-gray-500">No cost and no commitment to begin. We'll reply within one business day.</p>
             </div>
-          </motion.div>
+          </motion.div>)
         ) : (
           /* ── STEPS 2-4: Option selection ── */
-          <motion.div
+          (<motion.div
             key={`step-${step}`}
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -416,7 +415,6 @@ function ProjectForm() {
                 );
               })}
             </div>
-
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setStep((s) => s - 1)}
@@ -450,7 +448,7 @@ function ProjectForm() {
                 </button>
               )}
             </div>
-          </motion.div>
+          </motion.div>)
         )}
       </AnimatePresence>
     </div>
@@ -647,7 +645,7 @@ export default function Welcome() {
               </div>
             </div>
           </div>
-          <p className="text-base text-gray-500 italic mt-5 text-center px-4">
+          <p className="text-base italic mt-5 text-center px-4 font-semibold text-[color:var(--tw-ring-offset-color)]">
             From city government to local favorites — the names you know already carry our work.
           </p>
         </motion.section>
@@ -804,24 +802,6 @@ export default function Welcome() {
             </h2>
             <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
               The right product does more than fill a goodie bag. It powers your brand, draws attention at your next event, and turns a single moment into a lasting memory. Long after the day is over, your message keeps working — sitting on a desk, riding in a car, worn around town.
-            </p>
-          </div>
-        </motion.section>
-
-        {/* ── LOCAL POSITIONING ─────────────────────────────────────────────── */}
-        <motion.section
-          className="px-4 py-16 border-t border-white/5"
-          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-        >
-          <div className="max-w-xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-6" style={{ fontFamily: "var(--font-display)", textTransform: "none" }}>
-              Built Here. For the People Who{" "}
-              <span className="text-[#00A3E0]">Built Here.</span>
-            </h2>
-            <p className="text-gray-300 leading-relaxed text-lg" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>
-              Tri Creative Group is a Nashville company. The businesses we serve are the ones that made this city what it is — and we think those businesses deserve a partner who's part of the same streets.
-              <br /><br />
-              We don't make throwaways. We make the kind of thing people <strong className="text-white">keep, use, and remember.</strong> Because a product that lasts is a message that lasts.
             </p>
           </div>
         </motion.section>
