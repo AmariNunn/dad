@@ -18,6 +18,21 @@ import mnpsLogo from "@assets/mnps_(1)_1781292051557.png";
 import soccerClub from "@assets/sc_1781292077727.png";
 import overtonCroc from "@assets/overton_crok_sample-removebg-preview_1781291158630.png";
 import jfkBackpack from "@assets/jfk_backpack_sample-removebg-preview_1781291225686.png";
+import spLogo2 from "@assets/client-logos_1768588141832-LlhLCFRX-removebg-preview_(2)_1781295713004.png";
+import spMnps from "@assets/mnps_(1)_1781295717826.png";
+import spNmaam from "@assets/client-logos_1768588141832-LlhLCFRX-removebg-preview_(4)_1781295856091.png";
+import spMusicCity from "@assets/client-logos_1768588141832-LlhLCFRX-removebg-preview_(3)_1781295859009.png";
+import spPencil from "@assets/pencil_1781295865160.png";
+import spRemyMartin from "@assets/client-logos_1768588141832-LlhLCFRX-removebg-preview_(5)_1781295926019.png";
+
+const socialProofLogos = [
+  { src: spLogo2, alt: "Corizon Health" },
+  { src: spMnps, alt: "Metro Nashville Public Schools" },
+  { src: spNmaam, alt: "National Museum of African American Music" },
+  { src: spMusicCity, alt: "Music City Community Court" },
+  { src: spPencil, alt: "Pencil" },
+  { src: spRemyMartin, alt: "Rémy Martin" },
+];
 
 const marqueeItems = [
   { src: corizonLogo, alt: "Corizon Health" },
@@ -613,12 +628,24 @@ export default function Welcome() {
             <p className="text-xl md:text-2xl font-black text-white mb-8 uppercase tracking-wide" style={{ fontFamily: "var(--font-display)" }}>
               Trusted by the brands that built Nashville
             </p>
-            <img
-              src={clientLogosImg}
-              alt="Client logos — Nashville SC, Metro Nashville Public Schools, National Museum of African American Music, and more"
-              className="w-full max-w-2xl mx-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
-            />
-            <p className="text-base text-gray-500 italic mt-6">
+            <div className="relative overflow-hidden mt-2">
+              {/* Left fade */}
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-[#060d1f] to-transparent" />
+              {/* Right fade */}
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-[#060d1f] to-transparent" />
+              <div className="flex gap-12 animate-[marquee_28s_linear_infinite] whitespace-nowrap w-max items-center py-4">
+                {[...socialProofLogos, ...socialProofLogos, ...socialProofLogos].map((item, i) => (
+                  <div key={i} className="flex-shrink-0 w-44 h-16 flex items-center justify-center">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="max-h-full max-w-full object-contain opacity-75 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <p className="text-base text-gray-500 italic mt-4">
               From city government to local favorites — the names you know already carry our work.
             </p>
           </div>
