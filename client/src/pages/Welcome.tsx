@@ -485,12 +485,23 @@ export default function Welcome() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg text-gray-300 mb-4 leading-relaxed"
+              className="text-lg text-gray-300 mb-6 leading-relaxed"
               style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal", fontWeight: 400 }}
             >
               Tell us what you're building.{" "}
               <strong className="text-white">We'll handle the rest</strong> — design included.
             </motion.p>
+
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest shadow-[0_0_30px_rgba(0,163,224,0.4)] hover:shadow-[0_0_40px_rgba(0,163,224,0.6)] transition-all duration-200 mb-2"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Start Your Project <ArrowRight className="w-5 h-5" />
+            </motion.button>
           </div>
         </section>
 
