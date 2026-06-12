@@ -100,17 +100,17 @@ const testimonials = [
   {
     quote: "We stopped chasing vendors.",
     body: "Used to be three suppliers and three headaches for every event. Now it's one call, and it's done — early, every time.",
-    author: "Marcus Webb", title: "Operations Director", org: "Shelby & Co. Nashville",
+    title: "Operations Director", org: "Nashville logistics company",
   },
   {
     quote: "My team actually wears it.",
     body: "That's the real test. The shirts didn't end up in a drawer. People wear them around town, and I keep getting asked where they came from.",
-    author: "Danielle Okafor", title: "HR Manager", org: "Pinnacle Community Health",
+    title: "HR Manager", org: "Middle Tennessee healthcare organization",
   },
   {
     quote: "They handled the design and made us look better than we asked for.",
     body: "I came in with a rough idea and a logo. They came back with something I was proud to put our name on.",
-    author: "Troy Castillo", title: "Executive Director", org: "Eastside Youth Alliance",
+    title: "Executive Director", org: "East Nashville youth nonprofit",
   },
 ];
 
@@ -698,7 +698,7 @@ export default function Welcome() {
                     <div key={t.quote} className="bg-white/5 border border-white/10 rounded-xl p-6">
                       <p className="text-white font-black text-base mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>"{t.quote}"</p>
                       <p className="text-gray-400 text-base leading-relaxed mb-4" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{t.body}</p>
-                      <p className="text-sm text-gray-500">— {t.author}, {t.title}, {t.org}</p>
+                      <p className="text-sm text-gray-500">— {t.title}, {t.org}</p>
                     </div>
                   ))}
                 </div>
