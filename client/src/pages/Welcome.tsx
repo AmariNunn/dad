@@ -628,12 +628,12 @@ export default function Welcome() {
             <p className="text-xl md:text-2xl font-black text-white mb-8 uppercase tracking-wide" style={{ fontFamily: "var(--font-display)" }}>
               Trusted by the brands that built Nashville
             </p>
-            <div className="relative overflow-hidden mt-2">
+            <div className="relative overflow-hidden mt-2 bg-white border-y border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.10)] py-4">
               {/* Left fade */}
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-[#060d1f] to-transparent" />
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-white to-transparent" />
               {/* Right fade */}
-              <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-[#060d1f] to-transparent" />
-              <div className="flex gap-12 animate-[marquee_28s_linear_infinite] whitespace-nowrap w-max items-center py-4">
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-white to-transparent" />
+              <div className="flex gap-12 animate-[marquee_28s_linear_infinite] whitespace-nowrap w-max items-center">
                 {[...socialProofLogos, ...socialProofLogos, ...socialProofLogos].map((item, i) => (
                   <div key={i} className="flex-shrink-0 w-44 h-16 flex items-center justify-center">
                     <img
