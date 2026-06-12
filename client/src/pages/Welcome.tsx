@@ -505,16 +505,26 @@ export default function Welcome() {
               <strong className="text-white">We'll handle the rest</strong> — design included.
             </motion.p>
 
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest shadow-[0_0_30px_rgba(0,163,224,0.4)] hover:shadow-[0_0_40px_rgba(0,163,224,0.6)] transition-all duration-200 mb-2"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="flex flex-col items-center gap-3"
             >
-              Start Your Project <ArrowRight className="w-5 h-5" />
-            </motion.button>
+              <button
+                onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-base uppercase tracking-widest shadow-[0_0_30px_rgba(0,163,224,0.4)] hover:shadow-[0_0_40px_rgba(0,163,224,0.6)] transition-all duration-200"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Start Your Project <ArrowRight className="w-5 h-5" />
+              </button>
+              <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+                or call us —{" "}
+                <a href="tel:6158505260" className="text-[#00A3E0] hover:text-white transition-colors duration-150 font-medium">
+                  615.850.5260
+                </a>
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -617,6 +627,26 @@ export default function Welcome() {
           </div>
         </motion.section>
 
+        {/* ── POST-HOW-IT-WORKS CTA ─────────────────────────────────────────── */}
+        <div className="px-4 pb-16 text-center">
+          <p className="text-sm text-gray-400 mb-4 uppercase tracking-widest" style={{ fontFamily: "var(--font-display)" }}>
+            Sounds simple? It is.
+          </p>
+          <button
+            onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-sm uppercase tracking-widest shadow-[0_0_24px_rgba(0,163,224,0.35)] hover:shadow-[0_0_36px_rgba(0,163,224,0.55)] transition-all duration-200 mb-3"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Start Your Project <ArrowRight className="w-4 h-4" />
+          </button>
+          <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+            or call us —{" "}
+            <a href="tel:6158505260" className="text-[#00A3E0] hover:text-white transition-colors duration-150 font-medium">
+              615.850.5260
+            </a>
+          </p>
+        </div>
+
         {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
         <motion.section
           className="border-t border-white/5 pt-10 pb-8"
@@ -699,6 +729,34 @@ export default function Welcome() {
             </div>
           </div>
         </motion.section>
+
+        {/* ── POST-TESTIMONIALS CTA ─────────────────────────────────────────── */}
+        <motion.div
+          className="px-4 pb-16"
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        >
+          <div className="max-w-md mx-auto bg-white/5 border border-white/10 rounded-2xl px-8 py-10 text-center shadow-[0_0_60px_rgba(0,163,224,0.08)]">
+            <p className="text-2xl font-black text-white mb-2" style={{ fontFamily: "var(--font-display)", textTransform: "none" }}>
+              Ready when you are.
+            </p>
+            <p className="text-gray-400 text-sm mb-7" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+              No commitment, no cost to get started.
+            </p>
+            <button
+              onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-sm uppercase tracking-widest shadow-[0_0_24px_rgba(0,163,224,0.35)] hover:shadow-[0_0_40px_rgba(0,163,224,0.55)] transition-all duration-200 mb-4"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Start Your Project <ArrowRight className="w-4 h-4" />
+            </button>
+            <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+              or call us —{" "}
+              <a href="tel:6158505260" className="text-[#00A3E0] hover:text-white transition-colors duration-150 font-medium">
+                615.850.5260
+              </a>
+            </p>
+          </div>
+        </motion.div>
 
         {/* ── FAQ ───────────────────────────────────────────────────────────── */}
         <motion.section
@@ -789,6 +847,26 @@ export default function Welcome() {
             </div>
           </div>
         </motion.section>
+
+        {/* ── POST-RESULTS CTA ──────────────────────────────────────────────── */}
+        <motion.div
+          className="px-4 pb-16 text-center"
+          variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+        >
+          <button
+            onClick={() => document.getElementById("project-form")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00A3E0] hover:bg-[#0082B3] text-white font-black text-sm uppercase tracking-widest shadow-[0_0_24px_rgba(0,163,224,0.35)] hover:shadow-[0_0_40px_rgba(0,163,224,0.55)] transition-all duration-200 mb-3"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Start Your Project <ArrowRight className="w-4 h-4" />
+          </button>
+          <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+            or call us —{" "}
+            <a href="tel:6158505260" className="text-[#00A3E0] hover:text-white transition-colors duration-150 font-medium">
+              615.850.5260
+            </a>
+          </p>
+        </motion.div>
 
         {/* ── BRAND / EMOTIONAL ─────────────────────────────────────────────── */}
         <motion.section
