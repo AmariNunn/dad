@@ -518,7 +518,7 @@ export default function Welcome() {
               >
                 Start Your Project <ArrowRight className="w-5 h-5" />
               </button>
-              <p className="text-sm text-gray-500" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
+              <p className="font-bold text-[color:var(--tw-ring-offset-color)] text-[16px]" style={{ fontFamily: "var(--font-body)", textTransform: "none" }}>
                 or call us —{" "}
                 <a href="tel:6158505260" className="text-[#00A3E0] hover:text-white transition-colors duration-150 font-medium">
                   615.850.5260
