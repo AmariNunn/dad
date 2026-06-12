@@ -20,14 +20,14 @@ import overtonCroc from "@assets/overton_crok_sample-removebg-preview_1781291158
 import jfkBackpack from "@assets/jfk_backpack_sample-removebg-preview_1781291225686.png";
 
 const marqueeItems = [
-  { src: oasisJournal, alt: "Oasis Journal", large: false },
-  { src: niaHouseBag, alt: "Nia House Bag", large: false },
-  { src: corizonLogo, alt: "Corizon Health", large: true },
-  { src: spineLogo, alt: "Advanced Spine & Wellness", large: true },
-  { src: mnpsLogo, alt: "Metro Nashville Public Schools", large: true },
-  { src: soccerClub, alt: "Nashville SC", large: true },
-  { src: overtonCroc, alt: "Overton Crocs", large: false },
-  { src: jfkBackpack, alt: "JFK Backpack", large: false },
+  { src: corizonLogo, alt: "Corizon Health" },
+  { src: overtonCroc, alt: "Overton Crocs" },
+  { src: mnpsLogo, alt: "Metro Nashville Public Schools" },
+  { src: jfkBackpack, alt: "JFK Backpack" },
+  { src: soccerClub, alt: "Nashville SC" },
+  { src: oasisJournal, alt: "Oasis Journal" },
+  { src: spineLogo, alt: "Advanced Spine & Wellness" },
+  { src: niaHouseBag, alt: "Nia House Bag" },
 ];
 import { ShootingStars } from "@/components/ShootingStars";
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
@@ -517,14 +517,11 @@ export default function Welcome() {
         <section className="py-4 overflow-hidden bg-white">
           <div className="flex gap-10 animate-[marquee_30s_linear_infinite] [animation-direction:reverse] whitespace-nowrap w-max items-center">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-              <div
-                key={i}
-                className={`flex-shrink-0 flex items-center justify-center ${item.large ? "w-44 h-44" : "w-28 h-28"}`}
-              >
+              <div key={i} className="flex-shrink-0 w-36 h-36 flex items-center justify-center">
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className={`object-contain ${item.large ? "w-44 h-44" : "w-28 h-28"}`}
+                  className="w-36 h-36 object-contain"
                 />
               </div>
             ))}
