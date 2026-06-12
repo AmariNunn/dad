@@ -19,13 +19,13 @@ import overtonCroc from "@assets/overton_crok_sample-removebg-preview_1781291158
 import jfkBackpack from "@assets/jfk_backpack_sample-removebg-preview_1781291225686.png";
 
 const marqueeItems = [
-  { src: oasisJournal, alt: "Oasis Journal" },
-  { src: niaHouseBag, alt: "Nia House Bag" },
-  { src: amcLogo, alt: "AMC" },
-  { src: mnpsLogo, alt: "Metro Nashville Public Schools" },
-  { src: soccerClub, alt: "Nashville SC" },
-  { src: overtonCroc, alt: "Overton Crocs" },
-  { src: jfkBackpack, alt: "JFK Backpack" },
+  { src: oasisJournal, alt: "Oasis Journal", large: false },
+  { src: niaHouseBag, alt: "Nia House Bag", large: false },
+  { src: amcLogo, alt: "AMC", large: true },
+  { src: mnpsLogo, alt: "Metro Nashville Public Schools", large: true },
+  { src: soccerClub, alt: "Nashville SC", large: true },
+  { src: overtonCroc, alt: "Overton Crocs", large: false },
+  { src: jfkBackpack, alt: "JFK Backpack", large: false },
 ];
 import { ShootingStars } from "@/components/ShootingStars";
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
@@ -512,14 +512,17 @@ export default function Welcome() {
         </section>
 
         {/* ── PRODUCT MARQUEE ───────────────────────────────────────────────── */}
-        <section className="py-3 overflow-hidden">
-          <div className="flex gap-8 animate-[marquee_25s_linear_infinite] whitespace-nowrap w-max items-center">
+        <section className="py-4 overflow-hidden bg-white">
+          <div className="flex gap-10 animate-[marquee_30s_linear_infinite] [animation-direction:reverse] whitespace-nowrap w-max items-center">
             {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-              <div key={i} className="flex-shrink-0 w-24 h-24 flex items-center justify-center">
+              <div
+                key={i}
+                className={`flex-shrink-0 flex items-center justify-center ${item.large ? "w-44 h-44" : "w-28 h-28"}`}
+              >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="w-24 h-24 object-contain"
+                  className={`object-contain ${item.large ? "w-44 h-44" : "w-28 h-28"}`}
                 />
               </div>
             ))}
