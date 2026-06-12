@@ -621,34 +621,35 @@ export default function Welcome() {
 
         {/* ── SOCIAL PROOF ──────────────────────────────────────────────────── */}
         <motion.section
-          className="px-4 py-10 border-t border-white/5"
+          className="border-t border-white/5 pt-10 pb-8"
           variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
         >
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl md:text-2xl font-black text-white mb-8 uppercase tracking-wide" style={{ fontFamily: "var(--font-display)" }}>
-              Trusted by the brands that built Nashville
-            </p>
-            <div className="relative overflow-hidden mt-2 bg-white border-y border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.10)] py-4">
+          <p className="text-xl md:text-2xl font-black text-white mb-8 uppercase tracking-wide text-center px-4" style={{ fontFamily: "var(--font-display)" }}>
+            Trusted by the brands that built Nashville
+          </p>
+          {/* Full-width white marquee band */}
+          <div className="bg-white border-y border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+            <div className="relative overflow-hidden py-5">
               {/* Left fade */}
-              <div className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10 bg-gradient-to-r from-white to-transparent" />
+              <div className="pointer-events-none absolute left-0 top-0 h-full w-24 z-10 bg-gradient-to-r from-white to-transparent" />
               {/* Right fade */}
-              <div className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10 bg-gradient-to-l from-white to-transparent" />
-              <div className="flex gap-12 animate-[marquee_28s_linear_infinite] whitespace-nowrap w-max items-center">
+              <div className="pointer-events-none absolute right-0 top-0 h-full w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+              <div className="flex gap-14 animate-[marquee_28s_linear_infinite] whitespace-nowrap w-max items-center">
                 {[...socialProofLogos, ...socialProofLogos, ...socialProofLogos].map((item, i) => (
-                  <div key={i} className="flex-shrink-0 w-44 h-16 flex items-center justify-center">
+                  <div key={i} className="flex-shrink-0 w-48 h-16 flex items-center justify-center">
                     <img
                       src={item.src}
                       alt={item.alt}
-                      className="max-h-full max-w-full object-contain opacity-75 hover:opacity-100 transition-opacity duration-300"
+                      className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
                 ))}
               </div>
             </div>
-            <p className="text-base text-gray-500 italic mt-4">
-              From city government to local favorites — the names you know already carry our work.
-            </p>
           </div>
+          <p className="text-base text-gray-500 italic mt-5 text-center px-4">
+            From city government to local favorites — the names you know already carry our work.
+          </p>
         </motion.section>
 
         {/* ── TESTIMONIALS ──────────────────────────────────────────────────── */}
