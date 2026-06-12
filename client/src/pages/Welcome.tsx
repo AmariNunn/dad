@@ -10,6 +10,23 @@ import logoImg from "@assets/TriCreativeGroup_Logo_White_1768588812953.png";
 import clientLogosImg from "@assets/client-logos_1768588141832-LlhLCFRX_1781129145911.webp";
 import hatGif from "@/assets/images/hat.gif";
 import handSanitizerGif from "@/assets/images/hand-sanitizer.gif";
+import oasisJournal from "@assets/oasis_journal_sample__1_-removebg-preview_1781291103249.png";
+import niaHouseBag from "@assets/nia_house_bag_samples__1_-removebg-preview_1781291107290.png";
+import amcLogo from "@assets/Amc_1781291116610.png";
+import mnpsLogo from "@assets/Mnps_1781291125253.png";
+import soccerClub from "@assets/soccer_club_1781291143251.png";
+import overtonCroc from "@assets/overton_crok_sample-removebg-preview_1781291158630.png";
+import jfkBackpack from "@assets/jfk_backpack_sample-removebg-preview_1781291225686.png";
+
+const marqueeItems = [
+  { src: oasisJournal, alt: "Oasis Journal" },
+  { src: niaHouseBag, alt: "Nia House Bag" },
+  { src: amcLogo, alt: "AMC" },
+  { src: mnpsLogo, alt: "Metro Nashville Public Schools" },
+  { src: soccerClub, alt: "Nashville SC" },
+  { src: overtonCroc, alt: "Overton Crocs" },
+  { src: jfkBackpack, alt: "JFK Backpack" },
+];
 import { ShootingStars } from "@/components/ShootingStars";
 import { ForceFieldBackground } from "@/components/ForceFieldBackground";
 
@@ -446,12 +463,12 @@ export default function Welcome() {
       <div className="relative z-10">
 
         {/* ── HERO ──────────────────────────────────────────────────────────── */}
-        <section className="px-4 pt-16 pb-4 text-center">
+        <section className="px-4 pt-8 pb-2 text-center">
           <div className="max-w-2xl mx-auto">
             <motion.img
               src={logoImg}
               alt="TRI Creative Group"
-              className="h-12 mx-auto mb-10 opacity-90"
+              className="h-10 mx-auto mb-4 opacity-90"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -472,7 +489,7 @@ export default function Welcome() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg text-gray-300 mb-8 leading-relaxed"
+              className="text-lg text-gray-300 mb-4 leading-relaxed"
               style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal", fontWeight: 400 }}
             >
               Tell us what you're building.{" "}
@@ -482,7 +499,7 @@ export default function Welcome() {
         </section>
 
         {/* ── VSL VIDEO ─────────────────────────────────────────────────────── */}
-        <section className="px-4 pb-6">
+        <section className="px-4 pb-3">
           <div className="max-w-2xl mx-auto">
             <motion.div
               initial={{ opacity: 0 }}
@@ -494,8 +511,23 @@ export default function Welcome() {
           </div>
         </section>
 
+        {/* ── PRODUCT MARQUEE ───────────────────────────────────────────────── */}
+        <section className="py-3 overflow-hidden">
+          <div className="flex gap-8 animate-[marquee_25s_linear_infinite] whitespace-nowrap w-max items-center">
+            {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
+              <div key={i} className="flex-shrink-0 w-24 h-24 flex items-center justify-center">
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-24 h-24 object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── FORM ──────────────────────────────────────────────────────────── */}
-        <section id="project-form" className="px-4 py-12">
+        <section id="project-form" className="px-4 pt-3 pb-12">
           <div className="max-w-md mx-auto">
             <h2
               className="text-3xl font-black text-white mb-6 text-center"
