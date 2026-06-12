@@ -611,7 +611,7 @@ export default function Welcome() {
                   </div>
                   <div>
                     <h3 className="text-base font-black text-white mb-1" style={{ fontFamily: "var(--font-display)", textTransform: "none", letterSpacing: "normal" }}>{step.title}</h3>
-                    <p className="text-base text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{step.body}</p>
+                    <p className="text-base leading-relaxed font-bold text-[color:var(--tw-ring-offset-color)]" style={{ fontFamily: "var(--font-body)", textTransform: "none", letterSpacing: "normal" }}>{step.body}</p>
                   </div>
                 </div>
               ))}
