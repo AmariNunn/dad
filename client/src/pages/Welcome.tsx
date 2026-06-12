@@ -12,16 +12,18 @@ import hatGif from "@/assets/images/hat.gif";
 import handSanitizerGif from "@/assets/images/hand-sanitizer.gif";
 import oasisJournal from "@assets/oasis_journal_sample__1_-removebg-preview_1781291103249.png";
 import niaHouseBag from "@assets/nia_house_bag_samples__1_-removebg-preview_1781291107290.png";
-import amcLogo from "@assets/Amc_1781291116610.png";
-import mnpsLogo from "@assets/Mnps_1781291125253.png";
-import soccerClub from "@assets/soccer_club_1781291143251.png";
+import corizonLogo from "@assets/client-logos_1768588141832-LlhLCFRX-removebg-preview_(2)_1781292044408.png";
+import spineLogo from "@assets/spine_1781292047686.png";
+import mnpsLogo from "@assets/mnps_(1)_1781292051557.png";
+import soccerClub from "@assets/sc_1781292077727.png";
 import overtonCroc from "@assets/overton_crok_sample-removebg-preview_1781291158630.png";
 import jfkBackpack from "@assets/jfk_backpack_sample-removebg-preview_1781291225686.png";
 
 const marqueeItems = [
   { src: oasisJournal, alt: "Oasis Journal", large: false },
   { src: niaHouseBag, alt: "Nia House Bag", large: false },
-  { src: amcLogo, alt: "AMC", large: true },
+  { src: corizonLogo, alt: "Corizon Health", large: true },
+  { src: spineLogo, alt: "Advanced Spine & Wellness", large: true },
   { src: mnpsLogo, alt: "Metro Nashville Public Schools", large: true },
   { src: soccerClub, alt: "Nashville SC", large: true },
   { src: overtonCroc, alt: "Overton Crocs", large: false },
